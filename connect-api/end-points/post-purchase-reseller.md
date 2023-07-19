@@ -31,7 +31,7 @@ POST /purchase/{reseller}
 
 ## Response
 ### `303` See Other
-Bij **succes** word je doorgestuurd naar de [:link: `/purchases/{reseller}/{purchase}`](get-purchases-reseller-purchase.md).
+Bij **succes** word je doorgestuurd naar [:link: `/purchases/{reseller}/{purchase}`](get-purchases-reseller-purchase.md).
 
 ### `400` Bad Request
 `400100 validation_failed`
