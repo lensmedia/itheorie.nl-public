@@ -6,7 +6,7 @@ GET /invoices/{reseller}/{invoice}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 * `invoice` - `int` - Factuurnummer
 
 ## Response
