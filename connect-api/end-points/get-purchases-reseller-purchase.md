@@ -38,7 +38,7 @@ GET /purchases/{reseller}/{purchase}
     "@broker": "/resellers/01GC7ABB22TT7Y6883YPVHFCG5.json",
     "@reseller": "/resellers/02GC7ABB22TT7Y6883YPVHFCG5.json",
     "@course": "/courses/04GC7ABB22TT7Y6883YPVHFCG5.json",
-    "@invoice": "/invoices/02GC7ABB22TT7Y6883YPVHFCG5/06GC7ABB22TT7Y6883YPVHFCG5.json",
+    "@invoice": "/invoices/02GC7ABB22TT7Y6883YPVHFCG5/51231.json",
     "id": "03GC7ABB22TT7Y6883YPVHFCG5",
     "createdAt": "2023-01-01T00:00:00+00:00",
     "currency": "EUR",
