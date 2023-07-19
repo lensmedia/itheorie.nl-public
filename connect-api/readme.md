@@ -9,7 +9,7 @@ Buiten de technische termen om zijn er nog wat extra puntjes van aandacht die ge
 <dt><dfn>broker</dfn>, tussenpersoon, wederverkoper, affiliate</dt>
 <dd>De bedrijven/instanties die gebruik maken van deze API</dd>
 <dt><dfn>legacy api</dfn></dt>
-<dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms gebruikt i.v.m. met migraties</dd>
+<dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms vermeld i.v.m. met migraties</dd>
 <dt><dfn>kvk</dfn></dt>
 <dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze kan aangepast kan worden. Het is in onze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
 </dl>
