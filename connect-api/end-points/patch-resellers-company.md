@@ -1,12 +1,12 @@
 # Reseller informatie
 Rijschool gegevens updaten <dfn>reseller</dfn>.<br>
 
-```apacheconf
+```http
 PATCH /resellers/{company}
 ```
 
 ## Parameters
-* `company` - `string` (ULID of KvK)
+* `company` - `string` - ULID of KvK
 
 ## Responses
 ### `404` Not Found

@@ -1,8 +1,11 @@
 # Uitgebreide informatie over een student en zijn progressie binnen iTheorie
 
-```apacheconf
+```http
 GET /students/{accessCode}/details
 ```
+
+## Parameters
+* `accessCode` - `string` - ULID of toegangscode (16 hexadecimale tekens)
 
 ## Response
 

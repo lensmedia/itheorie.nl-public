@@ -1,8 +1,11 @@
 # Beknopte informatie over een student (progressie).
 
-```apacheconf
+```http
 GET /students/{accessCode}
 ```
+
+## Parameters
+* `accessCode` - `string` - ULID of toegangscode (16 hexadecimale tekens)
 
 ## Response
 Samengevatte resultaten van de student:

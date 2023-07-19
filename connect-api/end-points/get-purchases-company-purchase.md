@@ -1,11 +1,13 @@
 # Informatie over een specifieke aankoop
 
-```apacheconf
+```http
 GET /purchases/{company}/{purchase}
 ```
 
-## Response
+## Parameters
+* `company` - `string` - ULID of KvK
 
+## Response
 Resultaat:
 - Inlogcode
 - ExpiraUedatum

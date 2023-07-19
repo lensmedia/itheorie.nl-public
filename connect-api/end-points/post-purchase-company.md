@@ -1,8 +1,11 @@
 # Maakt een nieuwe aankoop aan voor een specifieke reseller.
 
-```apacheconf
+```http
 POST /purchase/{company}
-````
+```
+
+## Parameters
+* `company` - `string` - ULID of KvK
 
 ## Request
 - Id van opleiding (/courses)

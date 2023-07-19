@@ -2,11 +2,11 @@
 Gedetailleerde informatie over een <dfn>reseller</dfn>.<br>
 _- legacy api: rijschool.info_
 
-```apacheconf
+```http
 GET /resellers/{company}
 ```
 ## Parameters
-* `company` - `string` (ULID of KvK)
+* `company` - `string` - ULID of KvK
 
 ## Responses
 ### `404` Not Found

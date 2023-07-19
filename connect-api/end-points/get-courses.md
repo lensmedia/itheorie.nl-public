@@ -1,7 +1,7 @@
 # Lijst met beschikbare cursussen
 Lijst met alle cursussen die op dit moment beschikbaar zijn in iTheorie. **Let op:** het kan wezen dat een cursist een oudere cursus volgt die hier niet meer tussen staat!
 
-```apacheconf
+```http
 GET /courses
 ```
 

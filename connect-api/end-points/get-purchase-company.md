@@ -2,9 +2,12 @@
 
 Geeft huidige inkoop informatie terug voor een specifieke reseller (bv prijs aangezien deze niet statisch is).
 
-```apacheconf
+```http
 GET /purchase/{company}
 ```
+
+## Parameters
+* `company` - `string` - ULID of KvK
 
 ## Response
 - Brutoprijs
