@@ -1,14 +1,9 @@
-# Lijst met beschikbare cursussen
-Lijst met alle cursussen die **op dit moment beschikbaar zijn** in iTheorie. **Let op:** het kan wezen dat een cursist een oudere cursus volgt die hier niet meer tussen staat! 
-
-Zoek je gegevens van een cursus die niet meer actief is dan kan je de specifieke cursus opvragen met [:link: `GET /courses/{course}`](get-courses-course.md). Deze end-point 
-werkt met alle cursussen die wij in ons systeem hebben staan.
-
-_B.v. onlangs zijn de cursussen motor en bromfiets not veranderd naar een nieuwe indeling, cursistsen die hiervoor al bezig waren hebben nog de oude cursus die niet in deze lijst staat._
+# Cursus gegevens
+Specifieke cursus informatie (werkt ook voor cursussen die niet meer actief zijn).
 
 ## Request
 ```http
-GET /courses
+GET /courses/{course}
 ```
 
 ## Response
@@ -29,7 +24,7 @@ GET /courses
 
 #### Voorbeeld
 ```json
-[{
+{
     "id": "01GC7ABB22TT7Y6883YPVHFCG5",
     "license": "b",
     "locale": "nl",
@@ -40,9 +35,7 @@ GET /courses
     "chapters": [ "Wetgeving", ... ],
     "exams": [ "Examen 1", "Examen 2", ... ],
     "zoomLessons" [ "Wetgeving", ... ]
-}, {
-   ...
-}]
+}
 ```
 
 ### `403` Forbidden

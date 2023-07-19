@@ -11,7 +11,7 @@ Buiten de technische termen om zijn er nog wat extra puntjes van aandacht die ge
 <dt><dfn>legacy api</dfn></dt>
 <dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms gebruikt i.v.m. met migraties</dd>
 <dt><dfn>kvk</dfn></dt>
-<dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze kan aangepast kan worden in ons systeem. Het is in onze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
+<dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze kan aangepast kan worden. Het is in onze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
 </dl>
 
 ## Laten we beginnen
@@ -28,4 +28,6 @@ Het kan uiteraard zo wezen dat er soms verwijzingen of andere dingen missen of n
 Voor algemene vragen kan je terecht bij [Peter Somers](mailto:p.somers@lensmedia.nl). Voor technische vragen/suggesties kan je via de email terecht bij onze [IT-afdeling](mailto:it@lensmedia.nl), of gebruik [github issues](https://github.com/lensmedia/itheorie.nl-public/issues)!
 
 ## Verder lezen
+* [Authenticatie](authenticatie.md)
+* [Error codes](error-codes.md)
 * [End points](end-points.md)

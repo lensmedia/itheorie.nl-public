@@ -6,7 +6,7 @@ GET /invoices/{reseller}/{invoice}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK van <dfn>reseller</dfn>
 * `invoice` - `int` - Factuurnummer
 
 ## Response
@@ -27,34 +27,18 @@ Content-Disposition: attachment; filename=IT12345.pdf
 ```
 
 ### `403` Forbidden
-<dfn>Broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>. En kan daarom de facturen niet downloaden.
+`403001 broker_is_disabled`
+<dfn>broker</dfn> is uitgeschakeld.
 
-#### `broker_no_permission_from_reseller`
-```json
-{
-    "code": 403001,
-    "error": "broker_no_permission_from_reseller",
-    "error_description": "Broker has no permission to access this reseller"
-}
-```
+`403002 reseller_is_disabled`
+<dfn>reseller</dfn> is uitgeschakeld.
+
+`403003 broker_missing_permission_from_reseller`
+<dfn>broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>. De factuur kan daarom niet gedownload worden.
 
 ### `404` Not Found
-<dfn>reseller</dfn> of factuur niet gevonden.
-
-#### `reseller_not_found`
-```json
-{
-    "code": 404001,
-    "error": "reseller_not_found",
-    "error_description": "Reseller not found"
-}
-```
-
-#### `invoice_not_found`
-```json
-{
-    "code": 404002,
-    "error": "invoice_not_found",
-    "error_description": "Invoice not found"
-}
-```
+`404001 reseller_not_found`
+<dfn>reseller</dfn> niet gevonden.
+    
+`404002 invoice_not_found`
+<dfn>factuur</dfn> niet gevonden. Er is waarschijnlijk een onjuist factuur nummer gebruikt.

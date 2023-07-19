@@ -9,46 +9,54 @@ GET /purchase/{reseller}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK van <dfn>reseller</dfn>
 
 ## Response
 
 ### `200` OK
 #### Schema
-| veld | type | beschrijving |
-|-|-|-|
-| `currency` | `string` | Voorlopig altijd `EUR` |
-| `original_price` | `string` | De originele verkoop prijs voor 1x iTheorie |
-| `price` | `string` | De prijs die gebruikt word |
-| `discount` | `float` (0-1) | Hoeveel korting in procent die gegeven word |
-| `price_details` | `string` | Omschrijving waarom de prijs als de prijs is afgeweken van normaal en anders is de waarde leeg |
+| veld                    | beschrijving                                                                                   |
+|-------------------------|------------------------------------------------------------------------------------------------|
+| `currency: string`      | Voorlopig altijd `EUR`                                                                         |
+| `originalPrice: string` | De originele verkoop prijs voor 1x iTheorie                                                    |
+| `price: string`         | De prijs die gebruikt word                                                                     |
+| `discount: float`       | Hoeveel korting in procent (0-1) die gegeven gaat worden                                       | 
+| `priceDetails: string`  | Omschrijving waarom de prijs als de prijs is afgeweken van normaal en anders is de waarde leeg |
 
 #### Voorbeeld
 ```json
 {
     "currency": "EUR",
-    "original_price": "16.80",
+    "originalPrice": "16.80",
     "price": "12.60",
-    "discount": 0.25,
-    "price_details": "Korting VRB"
+    "priceDetails": "Korting VRB",
+    "discount": 0.25
 }
 ```
 ```json
 {
     "currency": "EUR",
-    "original_price": "16.80",
+    "originalPrice": "16.80",
     "price": "16.80",
-    "discount": 0,
-    "price_details": ""
+    "priceDetails": "",
+    "discount": 0
 }
 ```
 
+### `402` Payment Required
+`402001 missing_payment_information`
+aankoop is niet gratis en er zijn geen betaal gegevens bij ons bekend van <dfn>reseller</dfn>.
+
+### `403` Forbidden
+`403001 broker_is_disabled`
+<dfn>broker</dfn> is uitgeschakeld.
+
+`403002 reseller_is_disabled`
+<dfn>reseller</dfn> is uitgeschakeld.
+
+`403003 broker_missing_permission_from_reseller`
+<dfn>broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.
+
 ### `404` Not Found
-#### `reseller_not_found` <dfn>reseller</dfn> niet gevonden.
-```json
-{
-    "code": 404001,
-    "error": "reseller_not_found",
-    "error_description": "Reseller not found"
-}
-```
+`404001 reseller_not_found`
+<dfn>reseller</dfn> niet gevonden.

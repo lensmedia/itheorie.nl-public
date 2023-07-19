@@ -8,40 +8,28 @@ PATCH /resellers/{reseller}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK van <dfn>reseller</dfn>
 
 ## Responses
-### `404` Not Found
-<dfn>Reseller</dfn> is niet gevonden in ons systeem.
-
-#### `error_reseller_not_found`
-```json
-{
-    "code": 15122,
-    "error": "reseller_not_found",
-    "error_description": "Reseller not found"
-}
-```
-
-### `403` Forbidden
-<dfn>Broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.
-
-#### `error_broker_no_permission_from_reseller`
-```json
-{
-    "code": 13124,
-    "error": "broker_no_permission_from_reseller",
-    "error_description": "Broker has no permission to access this reseller"
-}
-```
-
 ### `200` OK
-
-### WIP
+#### WIP
 - Naam rijschool
 - Postadres
-- Factuuradres + factuur e-mail
+- Factuuradres + factuur email
 - Rekeninghouder/IBAN
-- URL om IBAN te wijzigen/in te stellen => Naar iTheorie pagina met alleen
-  betaalmogelijkheid (zonder inlog)
+- URL om IBAN te wijzigen/in te stellen => Naar iTheorie pagina met alleen betaalmogelijkheid (zonder inlog)
 - Wel of niet mogen inkopen + reden
+
+### `403` Forbidden
+`403001 broker_is_disabled`
+<dfn>broker</dfn> is uitgeschakeld.
+
+`403002 reseller_is_disabled`
+<dfn>reseller</dfn> is uitgeschakeld.
+
+`403003 broker_missing_permission_from_reseller`
+<dfn>broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.
+
+### `404` Not Found
+`404001 reseller_not_found`
+<dfn>reseller</dfn> niet gevonden.

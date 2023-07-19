@@ -8,11 +8,11 @@ GET /resellers/{reseller}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK van <dfn>reseller</dfn>
 
 ## Responses
 ### `404` Not Found
-<dfn>Reseller</dfn> is niet gevonden in ons systeem.
+<dfn>Reseller</dfn> is niet gevonden.
 
 #### `error_reseller_not_found`
 ```json

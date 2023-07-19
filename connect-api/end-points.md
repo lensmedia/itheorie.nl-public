@@ -2,12 +2,12 @@
 
 ## Cursussen
 [:link: `GET /courses`](end-points/get-courses.md) -
-lijst met alle beschikbare cursussen.
+lijst met alle actieve cursussen.
+
+[:link: `GET /courses/{course}`](end-points/get-courses-course.md) -
+informatie over een specifieke cursus (ook als deze niet meer actief is).
 
 ## Resellers
-[:link: `GET /resellers`](end-points/get-resellers.md) -
-lijst met alle resellers voor de huidige broker.
-
 [:link: `GET /resellers/{reseller}`](end-points/get-resellers-reseller.md) -
 informatie over een specifieke reseller.
 
@@ -16,12 +16,12 @@ gegevens aanpassen voor een specifieke reseller.
 
 ## Inkopen
 [:link: `GET /purchase/{reseller}`](end-points/get-purchase-reseller.md) -
-geeft inkoop informatie terug voor een specifieke reseller (bv huidige prijs sinds deze niet statisch is).
+geeft inkoop informatie terug voor een specifieke reseller (bv huidige prijs aangezien deze niet statisch is).
 
 [:link: `POST /purchase/{reseller}`](end-points/post-purchase-reseller.md)  -
 maakt een nieuwe aankoop aan voor een specifieke reseller.
 
-## Terug kijken
+## Inkopen terug kijken
 [:link: `GET /purchases/{reseller}`](end-points/get-purchases-reseller.md) -
 lijst met alle aankopen voor een specifieke reseller
 
