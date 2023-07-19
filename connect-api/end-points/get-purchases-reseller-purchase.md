@@ -45,7 +45,7 @@ GET /purchases/{reseller}/{purchase}
     "price": "16.80",
     "invoice": 51231,
     "accessCode": "0A1B2C3456D7E8F9",
-    "expiresAt": "2025-01-01T00:00:00+00:00
+    "expiresAt": "2025-01-01T00:00:00+00:00",
     "loginUrl": "https://itheorie.nl/inloggen",
     "directLoginUrl": "https://itheorie.nl/qr?code=0A1B2C3456D7E8F9",
     "name": "Pietje Puk",
