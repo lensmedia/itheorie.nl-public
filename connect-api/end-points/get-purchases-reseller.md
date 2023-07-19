@@ -20,13 +20,14 @@ _**Nog niet uitgedacht**, maar uiteindelijk waarschijnlijk wel. De mogelijkheid 
 |-------------------------------------------|-------------------------------------------------------------------------------------------|
 | `@reseller: string`                       | API URL van de reseller.                                                                  |
 | `@broker: string`                         | API URL van de broker.                                                                    |
-| `loginUrl: string`                        | iTheorie login URL                                                                        |
+| `loginUrl: string`                        | iTheorie login URL.                                                                       |
 | `directLoginUrl: string`                  | Directe iTheorie login URL met code (`__CODE__` moet vervangen worden met de echte code). |
+| `items: array`                            | Lijst met de aankopen.                                                                    |
 | `items[].@course: string`                 | API URL van de cursus.                                                                    |
 | `items[].@invoice: null\|string`          | API URL van de factuur (als deze gefactureerd is).                                        |
-| `items[].id: string`                      | ULID van aankoop                                                                          |
-| `items[].invoice: null\|int`              | Factuurnummer                                                                             |
-| `items[].createdAt: datetime`             | Datum van aankoop                                                                         |
+| `items[].id: string`                      | ULID van aankoop.                                                                         |
+| `items[].invoice: null\|int`              | Factuurnummer.                                                                            |
+| `items[].createdAt: datetime`             | Datum van aankoop.                                                                        |
 | `items[].accessCode: string`              | Toegangscode bij de aankoop.                                                              |
 | `items[].currency: string`                | Valuta van de aankoop. Momenteel altijd `EUR`.                                            |
 | `items[].price: string`                   | Prijs van de aankoop.                                                                     |
