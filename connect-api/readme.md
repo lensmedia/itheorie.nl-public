@@ -5,7 +5,7 @@ Voordat we beginnen. Wij gaan er van uit dat de meeste technische termen m.b.t. 
 Buiten de technische termen om zijn er nog wat extra puntjes van aandacht die gebruikt worden in deze documentatie die misschien onduidelijk kunnen zijn:
 <dl>
 <dt><dfn>reseller</dfn>, rijscholen, verkoper</dt>
-<dd>Bedrijven/instanties die de uiteindelijke betaling doen.</dd>
+<dd>Bedrijven/instanties die de uiteindelijke aankoop/betaling doen.</dd>
 <dt><dfn>broker</dfn>, tussenpersoon, wederverkoper, affiliate</dt>
 <dd>De bedrijven/instanties die gebruik maken van deze API</dd>
 <dt><dfn>legacy api</dfn></dt>
