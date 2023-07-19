@@ -3,11 +3,11 @@
 ## Request
 
 ```http
-POST /purchase/{company}
+POST /purchase/{reseller}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 
 ## Request
 - Id van opleiding (/courses)

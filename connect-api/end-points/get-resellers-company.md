@@ -4,11 +4,11 @@ _- legacy api: rijschool.info_
 
 ## Request
 ```http
-GET /resellers/{company}
+GET /resellers/{reseller}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 
 ## Responses
 ### `404` Not Found

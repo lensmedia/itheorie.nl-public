@@ -2,28 +2,13 @@
 
 ## Request
 ```http
-GET /invoices/{company}
+GET /invoices/{reseller}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 
 ## Response
-### `404` Not Found
-<dfn>Reseller</dfn> niet gevonden.
-
-#### `error_reseller_not_found`
-```json
-{
-    "code": 15122,
-    "error": "reseller_not_found",
-    "error_description": "Reseller not found"
-}
-```
-
-### `403` Forbidden
-<dfn>Broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.
-
 ### `200` OK
 #### Schema
 | veld | type | beschrijving |
@@ -45,4 +30,28 @@ GET /invoices/{company}
 }, {
     ...
 }]
+```
+
+### `403` Forbidden
+<dfn>Broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>. En kan daarom de facturen niet downloaden.
+
+#### `broker_no_permission_from_reseller`
+```json
+{
+    "code": 403001,
+    "error": "broker_no_permission_from_reseller",
+    "error_description": "Broker has no permission to access this reseller"
+}
+```
+
+### `404` Not Found
+<dfn>Reseller</dfn> niet gevonden.
+
+#### `reseller_not_found`
+```json
+{
+    "code": 404001,
+    "error": "reseller_not_found",
+    "error_description": "Reseller not found"
+}
 ```

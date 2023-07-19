@@ -22,9 +22,9 @@ Alles komt onder dezelfde URL als de legacy api. Root POST oproepen (`POST /api/
 ### JSON
 Onze api maakt gebruik van JSON. We gaan proberen zoveel mogelijk gebruik te maken van de guidelines van JSON+LD om te linken naar andere resources. Echter omdat dit om een relatief simpele API gaat zitten hier nog geen complexe systemen achter die dat automatisch doen. 
 
+### Contact
 Het kan uiteraard zo wezen dat er soms verwijzingen of andere dingen missen of niet kloppen, is dit het geval? Laat het ons weten!
 
-### Contact
 Voor algemene vragen kan je terecht bij [Peter Somers](mailto:p.somers@lensmedia.nl). Voor technische vragen/suggesties kan je via de email terecht bij onze [IT-afdeling](mailto:it@lensmedia.nl), of gebruik [github issues](https://github.com/lensmedia/itheorie.nl-public/issues)!
 
 ## Verder lezen

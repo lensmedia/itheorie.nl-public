@@ -7,7 +7,8 @@ GET /courses
 ```
 
 ## Response
-### Schema
+### `200` OK
+#### Schema
 | veld | type | beschrijving |
 |-|-|-|
 | `id` | `string` | Unieke identifier van de cursus (ULID) |
@@ -21,7 +22,7 @@ GET /courses
 |`exams`|`string[]`|Lijst met examen namen|
 |`zoom_lessons`|`string[]`|Lijst met beschikbare zoom cursus namen|
 
-### Voorbeeld
+#### Voorbeeld
 ```json
 [{
     "id": "01GC7ABB22TT7Y6883YPVHFCG5",

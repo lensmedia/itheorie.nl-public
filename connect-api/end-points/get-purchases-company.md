@@ -2,11 +2,11 @@
 
 ## Request
 ```http
-GET /purchases/{company}
+GET /purchases/{reseller}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 
 ## Response
-Zelfde data als van [`POST /purchase/{company}`](post-purchase-company.md) (inkoop).
+Zelfde data als van [`POST /purchase/{reseller}`](post-purchase-company.md) (inkoop).

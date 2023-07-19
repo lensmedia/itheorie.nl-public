@@ -4,11 +4,11 @@ Rijschool gegevens updaten <dfn>reseller</dfn>.
 ### Request
 
 ```http
-PATCH /resellers/{company}
+PATCH /resellers/{reseller}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 
 ## Responses
 ### `404` Not Found

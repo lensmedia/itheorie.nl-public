@@ -2,11 +2,11 @@
 
 ## Request
 ```http
-GET /purchases/{company}/{purchase}
+GET /purchases/{reseller}/{purchase}
 ```
 
 ### Parameters
-* `company` - `string` - ULID of KvK
+* `reseller` - `string` - ULID of KvK
 
 ## Response
 Resultaat:
