@@ -2,15 +2,26 @@
 Gedetailleerde informatie over een <dfn>reseller</dfn>.<br>
 _- legacy api: rijschool.info_
 
+## Request
 ```http
 GET /resellers/{company}
 ```
-## Parameters
+
+### Parameters
 * `company` - `string` - ULID of KvK
 
 ## Responses
 ### `404` Not Found
 <dfn>Reseller</dfn> is niet gevonden in ons systeem.
+
+#### `error_reseller_not_found`
+```json
+{
+    "code": 15122,
+    "error": "reseller_not_found",
+    "error_description": "Reseller not found"
+}
+```
 
 ### `403` Forbidden
 <dfn>Broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.

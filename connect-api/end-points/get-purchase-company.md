@@ -1,12 +1,12 @@
 # Geeft inkoop informatie terug voor een specifieke reseller
-
 Geeft huidige inkoop informatie terug voor een specifieke reseller (bv prijs aangezien deze niet statisch is).
 
+## Request
 ```http
 GET /purchase/{company}
 ```
 
-## Parameters
+### Parameters
 * `company` - `string` - ULID of KvK
 
 ## Response

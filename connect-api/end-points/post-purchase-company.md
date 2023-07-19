@@ -1,10 +1,12 @@
 # Maakt een nieuwe aankoop aan voor een specifieke reseller.
 
+## Request
+
 ```http
 POST /purchase/{company}
 ```
 
-## Parameters
+### Parameters
 * `company` - `string` - ULID of KvK
 
 ## Request

@@ -1,10 +1,11 @@
 # Lijst met alle aankopen voor een specifieke reseller
 
+## Request
 ```http
 GET /purchases/{company}
 ```
 
-## Parameters
+### Parameters
 * `company` - `string` - ULID of KvK
 
 ## Response

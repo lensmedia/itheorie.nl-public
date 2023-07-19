@@ -1,10 +1,12 @@
 # Beknopte informatie over een student (progressie).
 
+## Request
+
 ```http
 GET /students/{accessCode}
 ```
 
-## Parameters
+### Parameters
 * `accessCode` - `string` - ULID of toegangscode (16 hexadecimale tekens)
 
 ## Response

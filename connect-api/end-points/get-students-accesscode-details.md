@@ -1,10 +1,11 @@
 # Uitgebreide informatie over een student en zijn progressie binnen iTheorie
 
+## Request
 ```http
 GET /students/{accessCode}/details
 ```
 
-## Parameters
+### Parameters
 * `accessCode` - `string` - ULID of toegangscode (16 hexadecimale tekens)
 
 ## Response

@@ -1,10 +1,11 @@
 # Informatie over een specifieke aankoop
 
+## Request
 ```http
 GET /purchases/{company}/{purchase}
 ```
 
-## Parameters
+### Parameters
 * `company` - `string` - ULID of KvK
 
 ## Response
