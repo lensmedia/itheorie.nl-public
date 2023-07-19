@@ -22,6 +22,7 @@ GET /purchases/{reseller}/{purchase}
 | `invoice: null\|int`              | Factuurnummer                                              |
 | `createdAt: datetime`             | Datum van aankoop                                          |
 | `accessCode: string`              | Toegangscode bij de aankoop.                               |
+| `expiresAt: datetime`             | Datum waarop de toegangscode verloopt.                     |"
 | `currency: string`                | Valuta van de aankoop. Momenteel altijd `EUR`.             |
 | `price: string`                   | Prijs van de aankoop.                                      |
 | `loginUrl: string`                | iTheorie login URL                                         |
@@ -44,6 +45,7 @@ GET /purchases/{reseller}/{purchase}
     "price": "16.80",
     "invoice": 51231,
     "accessCode": "0A1B2C3456D7E8F9",
+    "expiresAt": "2025-01-01T00:00:00+00:00
     "loginUrl": "https://itheorie.nl/inloggen",
     "directLoginUrl": "https://itheorie.nl/qr?code=0A1B2C3456D7E8F9",
     "name": "Pietje Puk",
@@ -52,3 +54,17 @@ GET /purchases/{reseller}/{purchase}
     "permissionToShareProgress": true
 }
 ```
+
+### `403` Forbidden
+`403001 broker_is_disabled`
+<dfn>broker</dfn> is uitgeschakeld.
+
+`403002 reseller_is_disabled`
+<dfn>reseller</dfn> is uitgeschakeld.
+
+`403003 broker_missing_permission_from_reseller`
+<dfn>broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.
+
+### `404` Not Found
+`404001 reseller_not_found`
+<dfn>reseller</dfn> niet gevonden.

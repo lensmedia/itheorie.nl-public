@@ -11,7 +11,7 @@ GET /purchases/{reseller}
 * `reseller` - `string` - ULID of KvK van <dfn>reseller</dfn>
 
 ### Filters
-Nog niet, maar uiteindelijk waarschijnlijk wel de mogelijkheid om te zoeken op velden.
+_**Nog niet uitgedacht**, maar uiteindelijk waarschijnlijk wel. De mogelijkheid om te zoeken op velden leek mij hier wel handig helemaal als een <dfn>reseller</dfb> veel inkoopt._
 
 ## Response
 ### `200` OK
@@ -59,3 +59,18 @@ Nog niet, maar uiteindelijk waarschijnlijk wel de mogelijkheid om te zoeken op v
         ...
     }]
 }
+```
+
+### `403` Forbidden
+`403001 broker_is_disabled`
+<dfn>broker</dfn> is uitgeschakeld.
+
+`403002 reseller_is_disabled`
+<dfn>reseller</dfn> is uitgeschakeld.
+
+`403003 broker_missing_permission_from_reseller`
+<dfn>broker</dfn> heeft geen toestemming van deze <dfn>reseller</dfn>.
+
+### `404` Not Found
+`404001 reseller_not_found`
+<dfn>reseller</dfn> niet gevonden.

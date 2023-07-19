@@ -34,12 +34,14 @@ z.s.m. even een test voor opzetten en hier een voorbeeld plaatsen.
 | `403001` | `broker_is_disabled`                      | <dfn>Broker</dfn> is geblokkeerd.                                                              |
 | `403002` | `reseller_is_disabled`                    | <dfn>Reseller</dfn> is geblokkeerd.                                                            |
 | `403003` | `broker_missing_permission_from_reseller` | <dfn>Broker</dfn> heeft geen toestemming om deze actie uit te voeren voor <dfn>reseller</dfn>. |
+| `403004` | `student_no_shared_progress`              | De student heeft zijn voortgang niet gedeeld met de <dfn>reseller</dfn>.                       |
 
 ### `404` Not Found
-| Code     | Naam                 | Omschrijving                                         |
-|----------|----------------------|------------------------------------------------------|
-| `404001` | `reseller_not_found` | <dfn>Reseller</dfn> is niet gevonden. |
-| `404002` | `invoice_not_found`  | Factuur is niet gevonden.             |
+| Code     | Naam                    | Omschrijving                          |
+|----------|-------------------------|---------------------------------------|
+| `404001` | `reseller_not_found`    | <dfn>Reseller</dfn> is niet gevonden. |
+| `404002` | `invoice_not_found`     | Factuur is niet gevonden.             |
+| `404003` | `access_code_not_found` | Toegangscode is niet gevonden.        |
 
 ### `500` Internal Server Error
 Als deze voor komt is er iets helemaal mis gegaan en moeten wij weer aan de slag. Laat het 

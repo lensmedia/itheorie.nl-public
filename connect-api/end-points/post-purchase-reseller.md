@@ -1,5 +1,4 @@
 # Maakt een nieuwe aankoop aan voor een specifieke reseller.
-
 ## Request
 
 ```http
@@ -31,29 +30,16 @@ POST /purchase/{reseller}
 ```
 
 ## Response
-### `200` OK
-#### Schema
-
-| veld                     | beschrijving                                                                                               |
-|--------------------------|------------------------------------------------------------------------------------------------------------|
-| `accessCode: string`     | Unieke code (16 hexadecimale tekens) waarmee de leerling kan inloggen op iTheorie.                         |
-| `expiresAt: datetime`    | Datum tot wanneer de code te gebruiken is (zonder extra betalingen door de cursist zelf binnen iTheorie).  |
-| `loginUrl: string`       | URL waar de leerling kan inloggen op iTheorie.                                                             |
-| `directLoginUrl: string` | De login URL die wij gebruiken voor QR codes. Als deze link gevolgd word, word de cursist gelijk ingelogd. |
-
-#### Voorbeeld
-```json
-{
-    "accessCode": "0A1B2C3456D7E8F9",
-    "expiresAt": "2024-03-01T00:00:00+00:00",
-    "loginUrl": "https://itheorie.nl/inloggen",
-    "directLoginUrl": "https://itheorie.nl/qr?code=0A1B2C3456D7E8F9"
-}
-```
+### `303` See Other
+Bij **succes** word je doorgestuurd naar de [:link: `/purchases/{reseller}/{purchase}`](get-purchases-reseller-purchase.md).
 
 ### `400` Bad Request
 `400100 validation_failed`
 validatie van de verstuurde data is niet goed gegaan.
+
+### `402` Payment Required
+`402001 missing_payment_information`
+aankoop is niet gratis en er zijn geen betaal gegevens bij ons bekend van <dfn>reseller</dfn>.
 
 ### `403` Forbidden
 `403001 broker_is_disabled`
