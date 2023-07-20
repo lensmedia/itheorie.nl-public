@@ -23,7 +23,7 @@ GET /purchase/{reseller}
 | `price: string`                 | De prijs die gebruikt word.                                                                         |
 | `suggestedRetailPrice: string`  | Adviesprijs.                                                                                        |
 | `discount: float`               | Hoeveel korting in procent (0-1) die gegeven gaat worden.                                           | 
-| `priceDetails: null\|string`    | Omschrijving waarom de prijs als de prijs is afgeweken van normaal en anders is de waarde leeg.     |
+| `priceDetails: null\|string`    | Omschrijving waarom de prijs als de prijs is afgeweken van normaal.     |
 | `canNotPurchase: bool`          | <dfn>Reseller</dfn> kan geen inkopen doen.                                                          |
 | `canNotPurchaseReason?: string` | Reden waarom de <dfn>reseller</dfn> niet kan inkopen. Alleen gevuld als `canNotPurchase` `true` is. |
 
