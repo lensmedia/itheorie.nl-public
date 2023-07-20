@@ -32,7 +32,7 @@ GET /purchase/{reseller}
     "originalPrice": "16.80",
     "price": "12.60",
     "priceDetails": "Korting VRB",
-    "discount": 0.25,
+    "discount": "0.25",
     "canNotPurchase": true,
     "canNotPurchaseReason": "Geen betaalgegevens bekend"
 }
