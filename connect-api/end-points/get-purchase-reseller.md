@@ -49,7 +49,7 @@ GET /purchase/{reseller}
     "price": "16.80",
     "priceDetails": null,
     "suggestedRetailPrice": "49.00",
-    "discount": 0,
+    "discount": "0",
     "canNotPurchase": false
 }
 ```
