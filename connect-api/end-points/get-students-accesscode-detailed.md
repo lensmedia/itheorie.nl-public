@@ -2,7 +2,7 @@
 
 ## Request
 ```http
-GET /students/{accessCode}/details
+GET /students/{accessCode}/detailed
 ```
 
 ### Parameters
