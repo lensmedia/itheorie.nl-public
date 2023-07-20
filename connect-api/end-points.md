@@ -15,18 +15,17 @@ informatie over een reseller.
 gegevens aanpassen voor een reseller.
 
 ## Inkopen
-[:link: `GET /purchase/{reseller}`](end-points/get-purchase-reseller.md) -
-geeft inkoop informatie terug voor een reseller (bv huidige prijs aangezien deze niet statisch is).
+[:link: `GET /purchases/{reseller}/details`](end-points/get-purchases-reseller-details.md) -
+geeft inkoop informatie terug voor de specifieke <dfn>reseller</dfn> (prijs/korting die ze op dat moment zouden krijgen).
 
-[:link: `POST /purchase/{reseller}`](end-points/post-purchase-reseller.md)  -
-maakt een nieuwe aankoop aan voor een reseller.
+[:link: `POST /purchases/{reseller}`](end-points/post-purchases-reseller.md)  -
+maakt een nieuwe aankoop aan voor een <dfn>reseller</dfn>.
 
-## Inkopen terug kijken
 [:link: `GET /purchases/{reseller}`](end-points/get-purchases-reseller.md) -
-lijst met alle aankopen voor een reseller
+lijst met gemaakte aankopen voor een <dfn>reseller</dfn>.
 
 [:link: `GET /purchases/{reseller}/{purchase}`](end-points/get-purchases-reseller-purchase.md) -
-informatie over een aankoop
+informatie over een specifieke aankoop.
 
 ## Studenten gegevens (progressie)
 [:link: `GET /students/{accessCode}`](end-points/get-students-accesscode.md) - 
@@ -37,7 +36,7 @@ uitgebreide informatie over een student en zijn progressie binnen iTheorie.
 
 ## Facturen
 [:link: `GET /invoices/{reseller}`](end-points/get-invoices-reseller.md) -
-lijst met alle facturen voor een reseller.
+lijst met alle facturen voor een <dfn>reseller</dfn>.
 
 [:link: `GET /invoices/{reseller}/{invoice}`](end-points/get-invoices-reseller-invoice.md) -
 download de factuur als PDF.

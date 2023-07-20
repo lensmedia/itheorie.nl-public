@@ -5,7 +5,7 @@ Geeft huidige inkoop informatie terug voor een specifieke reseller.
 
 ## Request
 ```http
-GET /purchase/{reseller}
+GET /purchases/{reseller}/details
 ```
 
 ### Parameters
