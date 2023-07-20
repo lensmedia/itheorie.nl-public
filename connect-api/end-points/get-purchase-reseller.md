@@ -17,14 +17,14 @@ GET /purchase/{reseller}
 #### Schema
 | veld                            | beschrijving                                                                                        |
 |---------------------------------|-----------------------------------------------------------------------------------------------------|
-| `currency: string`              | Voorlopig altijd `EUR`                                                                              |
-| `vat: string`                   | BTW percentage wat gerekend word                                                                    |
-| `originalPrice: string`         | De originele verkoop prijs voor 1x iTheorie                                                         |
-| `price: string`                 | De prijs die gebruikt word                                                                          |
-| `suggestedRetailPrice: string`  | Adviesprijs                                                                                         |
-| `discount: float`               | Hoeveel korting in procent (0-1) die gegeven gaat worden                                            | 
-| `priceDetails: null\|string`    | Omschrijving waarom de prijs als de prijs is afgeweken van normaal en anders is de waarde leeg      |
-| `canNotPurchase: bool`          | <dfn>Reseller</dfn> kan geen inkopen doen                                                           |
+| `currency: string`              | Voorlopig altijd `EUR`.                                                                             |
+| `vat: string`                   | BTW percentage wat gerekend word.                                                                   |
+| `originalPrice: string`         | De originele verkoop prijs voor 1x iTheorie.                                                        |
+| `price: string`                 | De prijs die gebruikt word.                                                                         |
+| `suggestedRetailPrice: string`  | Adviesprijs.                                                                                        |
+| `discount: float`               | Hoeveel korting in procent (0-1) die gegeven gaat worden.                                           | 
+| `priceDetails: null\|string`    | Omschrijving waarom de prijs als de prijs is afgeweken van normaal en anders is de waarde leeg.     |
+| `canNotPurchase: bool`          | <dfn>Reseller</dfn> kan geen inkopen doen.                                                          |
 | `canNotPurchaseReason?: string` | Reden waarom de <dfn>reseller</dfn> niet kan inkopen. Alleen gevuld als `canNotPurchase` `true` is. |
 
 #### Voorbeeld
@@ -50,7 +50,7 @@ GET /purchase/{reseller}
     "priceDetails": null,
     "suggestedRetailPrice": "49.00",
     "discount": 0,
-    "canNotPurchase": false,
+    "canNotPurchase": false
 }
 ```
 
