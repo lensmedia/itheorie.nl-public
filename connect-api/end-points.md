@@ -32,7 +32,7 @@ informatie over een aankoop
 [:link: `GET /students/{accessCode}`](end-points/get-students-accesscode.md) - 
 beknopte informatie over een student (progressie).
 
-[:link: `GET /students/{accessCode}/details`](end-points/get-students-accesscode-details.md) - 
+[:link: `GET /students/{accessCode}/detailed`](end-points/get-students-accesscode-detailed.md) - 
 uitgebreide informatie over een student en zijn progressie binnen iTheorie.
 
 ## Facturen
