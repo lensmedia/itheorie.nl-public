@@ -15,6 +15,7 @@ GET /resellers/{reseller}
 #### Schema
 | veld                                  | beschrijving                                                                                                                 |
 |---------------------------------------|------------------------------------------------------------------------------------------------------------------------------|
+| `id: string`                          | ULID van <dfn>reseller</dfn>                                                                                              |
 | `name: string`                        | Naam van de <dfn>reseller</dfn>                                                                                              |
 | `address: object`                     | Adresgegevens van de <dfn>reseller</dfn>                                                                                     |
 | `address.streetName: string`          | Straatnaam van de <dfn>reseller</dfn>                                                                                        |
