@@ -65,7 +65,7 @@ GET /students/{accessCode}/detailed
         "chapters": {
             "total": 9,
             "completed": 9,
-            "progression": "1",
+            "progress": "1",
             "chapters": [{
                 "title": "Wetgeving",
                 "completedAt": [
@@ -76,7 +76,7 @@ GET /students/{accessCode}/detailed
         "exams": {
             "total": 50,
             "completed": 3,
-            "progression": "0.06",
+            "progress": "0.06",
             "exams": [{
                 "title": "Examen 1",
                 "completedAt": [
@@ -95,7 +95,7 @@ GET /students/{accessCode}/detailed
         "theoryLessons": {
             "total": 9,
             "completed": 7,
-            "progression": "0.78",
+            "progress": "0.78",
             "theoryLessons": [{
                 "title": "Wetgeving",
                 "completedAt": [
