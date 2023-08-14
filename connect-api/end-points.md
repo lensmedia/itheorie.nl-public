@@ -1,10 +1,10 @@
 # End Points
 
 ## Cursussen
-[:link: `GET /courses`](end-points/get-courses.md) -
+[:link: `GET /courses/{reseller}`](end-points/get-courses.md) -
 lijst met alle actieve cursussen.
 
-[:link: `GET /courses/{course}`](end-points/get-courses-course.md) -
+[:link: `GET /courses/{reseller}/{course}`](end-points/get-courses-course.md) -
 informatie over een cursus (ook als deze niet meer actief is).
 
 ## Resellers
