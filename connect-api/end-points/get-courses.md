@@ -4,7 +4,7 @@ Lijst met alle cursussen die **op dit moment beschikbaar zijn** in iTheorie. **L
 Zoek je gegevens van een cursus die niet meer actief is dan kan je de specifieke cursus opvragen met [:link: `GET /courses/{course}`](get-courses-course.md). Deze end-point 
 werkt met alle cursussen die wij in ons systeem hebben staan.
 
-_B.v. onlangs zijn de cursussen motor en bromfiets veranderd naar een nieuwe indeling, cursistsen die hiervoor al bezig waren hebben nog de oude cursus die niet in deze lijst staat._
+_B.v. de cursussen motor en bromfiets zijn veranderd naar een nieuwe indeling sinds we de nieuwe iTheorie hebben. Cursistsen die hiervoor al bezig waren hebben nog de oude cursus die niet in deze lijst staat._
 
 ## Request
 ```http
