@@ -11,8 +11,8 @@ informatie over een cursus (ook als deze niet meer actief is).
 [:link: `GET /resellers/{reseller}`](end-points/get-resellers-reseller.md) -
 informatie over een reseller.
 
-[:link: `PATCH /resellers/{reseller}`](end-points/patch-resellers-reseller.md) -
-gegevens aanpassen voor een reseller.
+~[:link: `PATCH /resellers/{reseller}`](end-points/patch-resellers-reseller.md) -
+gegevens aanpassen voor een reseller.~
 
 ## Inkopen
 [:link: `GET /purchases/{reseller}/details`](end-points/get-purchases-reseller-details.md) -
@@ -28,10 +28,10 @@ lijst met gemaakte aankopen voor een <dfn>reseller</dfn>.
 informatie over een specifieke aankoop.
 
 ## Studenten gegevens (progressie)
-[:link: `GET /students/{accessCode}`](end-points/get-students-accesscode.md) - 
+[:link: `GET /students/{reseller}/{accessCode}`](end-points/get-students-accesscode.md) - 
 beknopte informatie over een student (progressie).
 
-[:link: `GET /students/{accessCode}/detailed`](end-points/get-students-accesscode-detailed.md) - 
+[:link: `GET /students/{reseller}/{accessCode}/detailed`](end-points/get-students-accesscode-detailed.md) - 
 uitgebreide informatie over een student en zijn progressie binnen iTheorie.
 
 ## Facturen
