@@ -12,6 +12,8 @@ Buiten de technische termen om zijn er nog wat extra puntjes van aandacht die ge
 <dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms vermeld i.v.m. met migraties</dd>
 <dt><dfn>kvk</dfn></dt>
 <dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze kan aangepast kan worden. Het is in onze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
+<dt><dfn>toegangscode</dfn>, <dfn>access code</dfn>, <dfn>subscription</dfn></dt>
+<dd>Toegangscode/access code zijn de inlog codes die de student gebruikt om in te loggen op itheorie.nl. Subscription is de interne naam die onze itheorie studenten/gebruikers entiteit gekregen heeft, als er verwezen word naar een id voor een toegangscode (in plaats van de toegangscode zelf) dan zal deze zo heten.</dd>
 </dl>
 
 ## Laten we beginnen
