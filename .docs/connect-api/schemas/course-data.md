@@ -1,15 +1,17 @@
-# CourseData
-| type                                 | name            | description                                                                                                                                                            |
-|--------------------------------------|-----------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| `Ulid`                               | `id`            | course identifier                                                                                                                                                      |
-| `string`                             | `license`       | driver's license category (`b`: passenger car, `a`: motorcycle, `am`: moped)                                                                                           |
-| `string`                             | `locale`        | language of the course `nl` or `en`                                                                                                                                    |
-| `string`                             | `title`         | course title                                                                                                                                                           |
-| `string`                             | `description`   | course description                                                                                                                                                     |
-| `string`                             | `image`         | url to course image, does not contain any text but is unique to each course to use if you want to create some fancy layout                                             |
-| `DateTimeImmutable`                  | `publishedAt`   | date when the course was published                                                                                                                                     |
-| `DateTimeImmutable`                  | `updatedAt`     | date when the course was last updated (this does not work properly yet, it only updates when the course object itself changes not any of its child items, aka content) |
-| `string[]`                           | `chapters`      | of chapter titles in the course                                                                                                                                        |
-| `string[]`                           | `exams`         | of exam titles available in the course                                                                                                                                 |
-| `string[]`                           | `theoryLessons` | of theory lessons available in the course                                                                                                                              |
-| [`OfferData`](offer-data.md)\|`null` | `offer`         | null detailed price info for the course                                                                                                                                |
+### CourseData
+| name            | type                                 | description                                                                                                                                                            |
+|-----------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| `id`            | `Ulid`                               | course identifier                                                                                                                                                      |
+| `license`       | `string`                             | driver's license category (`b`: passenger car, `a`: motorcycle, `am`: moped)                                                                                           |
+| `locale`        | `string`                             | language of the course `nl` or `en`                                                                                                                                    |
+| `title`         | `string`                             | course title                                                                                                                                                           |
+| `description`   | `string`                             | course description                                                                                                                                                     |
+| `image`         | `string`                             | url to course image, does not contain any text but is unique to each course to use if you want to create some fancy layout                                             |
+| `publishedAt`   | `DateTimeImmutable`                  | date when the course was published                                                                                                                                     |
+| `updatedAt`     | `DateTimeImmutable`                  | date when the course was last updated (this does not work properly yet, it only updates when the course object itself changes not any of its child items, aka content) |
+| `chapters`      | `string[]`                           | of chapter titles in the course                                                                                                                                        |
+| `exams`         | `string[]`                           | of exam titles available in the course                                                                                                                                 |
+| `theoryLessons` | `string[]`                           | of theory lessons available in the course                                                                                                                              |
+| `offer`         | [`OfferData`](offer-data.md)\|`null` | null detailed price info for the course                                                                                                                                |
+
+[[INCLUDE:offer-data.md]]

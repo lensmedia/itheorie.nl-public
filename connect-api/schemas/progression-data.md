@@ -1,6 +1,6 @@
-# ProgressionData
-| type       | name            | description                     |
-|------------|-----------------|---------------------------------|
-| `string[]` | `chapters`      | theory section progression info |
-| `string[]` | `exams`         | practise exam progression info  |
-| `string[]` | `theoryLessons` | theory lessons progression info |
+### ProgressionData
+| name            | type       | description                     |
+|-----------------|------------|---------------------------------|
+| `chapters`      | `string[]` | theory section progression info |
+| `exams`         | `string[]` | practise exam progression info  |
+| `theoryLessons` | `string[]` | theory lessons progression info |

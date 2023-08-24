@@ -1,5 +1,5 @@
-# Money
-| type     | name       | description                                     |
-|----------|------------|-------------------------------------------------|
-| `string` | `amount`   | Decimal value eg. `16.40`                       |
-| `string` | `currency` | Used currency currently only `EUR` is possible. |
+### Money
+| name       | type     | description                                     |
+|------------|----------|-------------------------------------------------|
+| `amount`   | `string` | Decimal value eg. `16.40`                       |
+| `currency` | `string` | Used currency currently only `EUR` is possible. |

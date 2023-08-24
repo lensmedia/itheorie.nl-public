@@ -1,7 +1,5 @@
 # Authenticatie
 
-[[INCLUDE:schemas/address-data.md]]
-
 ## JSON Login
 Het plan is om in eerste instantie JSON Login te gebruiken om een token te genereren.
 Voor de login gegevens worden de LENS-ID gebruikersnaam en wachtwoord gebruikt.

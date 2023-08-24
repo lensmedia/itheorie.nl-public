@@ -1,23 +1,14 @@
-# ResellerData
-| type                | name           | description                                            |
-|---------------------|----------------|--------------------------------------------------------|
+### ResellerData
+| name                    | type                                     | description                                        |
+|-------------------------|------------------------------------------|----------------------------------------------------|
+| `id`                    | `Ulid`                                   | reseller (company) id                              |
+| `name`                  | `string`                                 | reseller name                                      |
+| `email`                 | `string`\|`null`                         | current email address                              |
+| `defaultAddress`        | [`AddressData`](address-data.md)\|`null` | address data for the reseller                      |
+| `payment`               | [`PaymentData`](payment-data.md)         | payment information                                |
+| `canPurchase`           | `bool`                                   | whether the reseller can purchase products         |
+| `canNotPurchaseReasons` | `string[]`                               | reasons why the reseller can not purchase products |
 
-/** @var Ulid reseller (company) id */
-public Ulid $id;
+[[INCLUDE:address-data.md]]
 
-/** @var string reseller name */
-public string $name;
-
-/** @var string|null current email address */
-public ?string $email;
-
-/** @var AddressData|null address data for the reseller */
-public ?AddressData $defaultAddress;
-
-/** @var PaymentData payment information */
-public PaymentData $payment;
-
-public bool $canPurchase;
-
-/** @var string[] */
-public array $canNotPurchaseReasons = [];
+[[INCLUDE:payment-data.md]]
