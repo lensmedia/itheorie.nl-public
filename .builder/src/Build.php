@@ -8,40 +8,30 @@ use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Filesystem\Filesystem;
 
 class Build extends Command
 {
-    private const DIRECTIVES = [
-        'include' => IncludeTransformer::class,
-    ];
-
     protected static $defaultName = 'build';
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
         $rootDirectory = str_replace('\\', '/', dirname(__DIR__, 2));
-        $inputDirectory = $rootDirectory.'/_docs';
+        $inputDirectory = $rootDirectory.'/.docs';
         $outputDirectory = $rootDirectory;
 
         $files = $this->files($inputDirectory.'/*.md');
-
         foreach ($files as $file) {
             $content = file_get_contents($file);
 
-            foreach (self::DIRECTIVES as $class) {
-                $content = $this
-                    ->transformer($class)
-                    ->transform($content, $file);
-            }
+            // Yes this is bad, it's a regex replace on the entire file content
+            // instead of proper parsing, you go write the parser im lazy for
+            // something this simple. This becomes more important when we have
+            // many things to do.
+            $content = IncludeTransformer::transform($content, $file);
 
             $outputPath = str_replace($inputDirectory, $outputDirectory, $file);
-            $outputDirectory = dirname($outputPath);
-
-            if (!is_dir($outputDirectory) && !mkdir($outputDirectory, 0777, true) && !is_dir($outputDirectory)) {
-                throw new \RuntimeException(sprintf('Directory "%s" was not created', $outputDirectory));
-            }
-
-            file_put_contents($outputPath, $content);
+            $this->filesystem()->dumpFile($outputPath, $content);
         }
 
         return Command::SUCCESS;
@@ -59,20 +49,13 @@ class Build extends Command
         return array_merge($files, ...$subdirectories);
     }
 
-    private function transformer(string $class): TransformerInterface
+    public function filesystem(): Filesystem
     {
-        static $instances = [];
-        if (empty($instances[$class])) {
-            if (!is_a($class, TransformerInterface::class, true)) {
-                throw new RuntimeException(sprintf(
-                    'Transformer needs to implement "%s"',
-                    TransformerInterface::class,
-                ));
-            }
-
-            $instances[$class] = new $class($this);
+        static $filesystem;
+        if (empty($filesystem)) {
+            $filesystem = new Filesystem();
         }
 
-        return $instances[$class];
+        return $filesystem;
     }
 }
