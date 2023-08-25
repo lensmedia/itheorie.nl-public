@@ -1,4 +1,3 @@
-### SubscriptionData
 | name                         | type                                             | description                                                                  |
 |------------------------------|--------------------------------------------------|------------------------------------------------------------------------------|
 | `id`                         | `Ulid`                                           | subscription id                                                              |
@@ -13,7 +12,3 @@
 | `blockedAt`                  | `DateTimeImmutable`\|`null`                      | timestamp of when the user was blocked                                       |
 | `blockedReason`              | `string`\|`null`                                 | reason why this access code is blocked                                       |
 | `progression`                | [`ProgressionData`](progression-data.md)\|`null` | progression for the student, not available if course is null (not activated) |
-
-[[INCLUDE:course-data.md]]
-
-[[INCLUDE:progression-data.md]]

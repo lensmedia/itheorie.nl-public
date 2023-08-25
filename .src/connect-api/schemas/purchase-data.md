@@ -1,4 +1,3 @@
-### PurchaseData
 | name                | type                        | description                                                                                                                                                                                                                                      |
 |---------------------|-----------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                | `Ulid`                      | purchase ID                                                                                                                                                                                                                                      |
@@ -13,5 +12,3 @@
 | `name`              | `string`\|`null`            | the students name, used in communication/ as a name for driving schools shared progress list                                                                                                                                                     |
 | `email`             | `string`\|`null`            | the students email address, only used for (less) important notifications (or fallback if mobile is missing)                                                                                                                                      |
 | `mobilePhoneNumber` | `string`\|`null`            | the students mobile phone number (international format +31612345678), only used for important sms notifications e.g. when a theory lesson is cancelled                                                                                           |
-
-[[INCLUDE:money.md]]

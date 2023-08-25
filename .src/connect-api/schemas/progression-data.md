@@ -1,4 +1,3 @@
-### ProgressionData
 | name            | type       | description                     |
 |-----------------|------------|---------------------------------|
 | `chapters`      | `string[]` | theory section progression info |

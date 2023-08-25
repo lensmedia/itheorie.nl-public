@@ -1,4 +1,3 @@
-### CourseData
 | name            | type                                 | description                                                                                                                                                            |
 |-----------------|--------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`            | `Ulid`                               | course identifier                                                                                                                                                      |
@@ -13,5 +12,3 @@
 | `exams`         | `string[]`                           | of exam titles available in the course                                                                                                                                 |
 | `theoryLessons` | `string[]`                           | of theory lessons available in the course                                                                                                                              |
 | `offer`         | [`OfferData`](offer-data.md)\|`null` | null detailed price info for the course                                                                                                                                |
-
-[[INCLUDE:offer-data.md]]

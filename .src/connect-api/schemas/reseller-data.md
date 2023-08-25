@@ -1,4 +1,3 @@
-### ResellerData
 | name                    | type                                     | description                                        |
 |-------------------------|------------------------------------------|----------------------------------------------------|
 | `id`                    | `Ulid`                                   | reseller (company) id                              |
@@ -8,7 +7,3 @@
 | `payment`               | [`PaymentData`](payment-data.md)         | payment information                                |
 | `canPurchase`           | `bool`                                   | whether the reseller can purchase products         |
 | `canNotPurchaseReasons` | `string[]`                               | reasons why the reseller can not purchase products |
-
-[[INCLUDE:address-data.md]]
-
-[[INCLUDE:payment-data.md]]
