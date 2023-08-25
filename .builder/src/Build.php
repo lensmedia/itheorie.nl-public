@@ -2,9 +2,7 @@
 
 namespace App;
 
-use App\Transformer\TransformerInterface;
 use App\Transformer\IncludeTransformer;
-use RuntimeException;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -12,15 +10,29 @@ use Symfony\Component\Filesystem\Filesystem;
 
 class Build extends Command
 {
+    public const EXCLUDE_DOCS = [
+        'connect-api/schemas',
+        'connect-api/old',
+    ];
+
     protected static $defaultName = 'build';
+
+    private string $sourceDirectory;
+    private string $outputDirectory;
+
+    public function __construct(
+        private readonly Filesystem $filesystem,
+    ) {
+        parent::__construct(self::$defaultName);
+
+        $rootDirectory = str_replace('\\', '/', dirname(__DIR__, 2));
+        $this->sourceDirectory = $rootDirectory.'/.src';
+        $this->outputDirectory = $rootDirectory;
+    }
 
     protected function execute(InputInterface $input, OutputInterface $output): int
     {
-        $rootDirectory = str_replace('\\', '/', dirname(__DIR__, 2));
-        $inputDirectory = $rootDirectory.'/.docs';
-        $outputDirectory = $rootDirectory;
-
-        $files = $this->files($inputDirectory.'/*.md');
+        $files = $this->files($this->sourceDirectory.'/*.md');
         foreach ($files as $file) {
             $content = file_get_contents($file);
 
@@ -30,8 +42,8 @@ class Build extends Command
             // many things to do.
             $content = IncludeTransformer::transform($content, $file);
 
-            $outputPath = str_replace($inputDirectory, $outputDirectory, $file);
-            $this->filesystem()->dumpFile($outputPath, $content);
+            $outputPath = str_replace($this->sourceDirectory, $this->outputDirectory, $file);
+            $this->filesystem->dumpFile($outputPath, $content);
         }
 
         return Command::SUCCESS;
@@ -39,6 +51,12 @@ class Build extends Command
 
     private function files(string $pattern, int $flags = 0): array
     {
+        foreach (self::EXCLUDE_DOCS as $excluded) {
+            if (str_starts_with($pattern, $this->sourceDirectory.'/'.ltrim($excluded, '\\/'))) {
+                return [];
+            }
+        }
+
         $files = array_filter(glob($pattern, $flags), 'is_file');
 
         $subdirectories = [];
@@ -47,15 +65,5 @@ class Build extends Command
         }
 
         return array_merge($files, ...$subdirectories);
-    }
-
-    public function filesystem(): Filesystem
-    {
-        static $filesystem;
-        if (empty($filesystem)) {
-            $filesystem = new Filesystem();
-        }
-
-        return $filesystem;
     }
 }

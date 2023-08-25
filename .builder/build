@@ -5,8 +5,13 @@ require __DIR__.'/vendor/autoload.php';
 
 use App\Build;
 use Symfony\Component\Console\Application;
+use Symfony\Component\Filesystem\Filesystem;
+
+$buildCommand = new Build(
+    new Filesystem(),
+);
 
 $application = new Application();
-$application->add(new Build());
+$application->add($buildCommand);
 $application->setDefaultCommand('build');
 $application->run();
