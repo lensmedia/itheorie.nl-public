@@ -1,7 +1,7 @@
 # End Points
 
 ## Generating API tokens
-[:link: `GET /auth`](end-points/auth-get.md) -
+[:link: `GET /auth`](authentication.md) -
 http basic request returning an auth token to access everything else.
 
 ## Resellers

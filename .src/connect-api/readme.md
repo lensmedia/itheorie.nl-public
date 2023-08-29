@@ -5,13 +5,13 @@ Voordat we beginnen. Wij gaan er van uit dat de meeste technische termen m.b.t. 
 Buiten de technische termen om zijn er nog wat extra puntjes van aandacht die gebruikt worden in deze documentatie die misschien onduidelijk kunnen zijn:
 <dl>
 <dt><dfn>reseller</dfn>, rijscholen, verkoper</dt>
-<dd>Bedrijven/instanties die de uiteindelijke aankoop/betaling doen.</dd>
+<dd>Bedrijven/instanties die de uiteindelijke aankoop krijgen/betaling doen.</dd>
 <dt><dfn>broker</dfn>, tussenpersoon, wederverkoper, affiliate</dt>
 <dd>De bedrijven/instanties die gebruik maken van deze API</dd>
 <dt><dfn>legacy api</dfn></dt>
-<dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms vermeld i.v.m. met migraties</dd>
+<dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms vermeld voor verduidelijking met migraties</dd>
 <dt><dfn>kvk</dfn></dt>
-<dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze kan aangepast kan worden. Het is in onze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
+<dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze aangepast kan worden. Het is in deze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
 <dt><dfn>toegangscode</dfn>, <dfn>access code</dfn>, <dfn>subscription</dfn></dt>
 <dd>Toegangscode/access code zijn de inlog codes die de student gebruikt om in te loggen op itheorie.nl. Subscription is de interne naam die onze itheorie studenten/gebruikers entiteit gekregen heeft, als er verwezen word naar een id voor een toegangscode (in plaats van de toegangscode zelf) dan zal deze zo heten.</dd>
 </dl>
@@ -29,7 +29,7 @@ Het kan uiteraard zo wezen dat er soms verwijzingen of andere dingen missen of n
 
 Voor algemene vragen kan je terecht bij [Peter Somers](mailto:p.somers@lensmedia.nl). Voor technische vragen/suggesties kan je via de email terecht bij onze [IT-afdeling](mailto:it@lensmedia.nl), of gebruik [github issues](https://github.com/lensmedia/itheorie.nl-public/issues)!
 
-## Verder lezen
-* [Authenticatie](authenticatie.md)
+## Continue reading
+* [Authentication](authentication.md)
+* [End Points](end-points.md)
 * [Error codes](error-codes.md)
-* [End points](end-points.md)
