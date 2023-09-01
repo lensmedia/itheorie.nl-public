@@ -1,4 +1,4 @@
-# Beknopte informatie over een student (progressie).
+# Brief information about a students progression
 
 ## Request
 ```http
@@ -6,15 +6,31 @@ GET /{reseller}/students/{accessCode}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID or KvK of <dfn>reseller</dfn>
-* `accessCode` - `string` - ULID of toegangscode (16 hexadecimale tekens)
+* {INCLUDE:../includes/reseller-parameter.md}
+* {INCLUDE:../includes/access-code-parameter.md}
 
 ## Response
+### Schema
 
-### `200` OK
-#### Schema
+#### SubscriptionData
+{INCLUDE:../includes/schemas/subscription-data.md}
 
-#### Voorbeeld
+#### CourseData
+{INCLUDE:../includes/schemas/course-data.md}
+
+#### ProgressionData
+{INCLUDE:../includes/schemas/progression-data.md}
+
+#### ProgressionChapterData
+{INCLUDE:../includes/schemas/progression-chapter-data.md}
+
+#### ProgressionExamData
+{INCLUDE:../includes/schemas/progression-exam-data.md}
+
+#### ProgressionTheoryLessonData
+{INCLUDE:../includes/schemas/progression-theory-lesson-data.md}
+
+### Example
 ```json
 {
     "id": "01GYFBXGA6C3BZD16WNK6FPQ4P",
@@ -28,7 +44,7 @@ GET /{reseller}/students/{accessCode}
         "locale": "NL",
         "title": "Theoriecursus personenauto",
         "description": "Online theorie leren voor het CBR theorie-examen auto, motor, scooter, snorfiets, bromfiets, speed-pedelec of brommobiel.",
-        "image": "https://test.itheorie.nl/images/course/fallback.jpg",
+        "image": "https://test.itheorie.nl/assets/images/course/fallback.jpg",
         "publishedAt": "2023-04-20T14:58:06+02:00",
         "updatedAt": "2023-08-29T18:23:55+02:00"
     },
@@ -57,5 +73,12 @@ GET /{reseller}/students/{accessCode}
 }
 ```
 
-### `403` Forbidden
-### `404` Not Found
+### Errors
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}
+
+#### {INCLUDE:../includes/subscription-parameter-title.md}
+{INCLUDE:../includes/subscription-parameter-errors.md}
+
+#### Miscellaneous
+* {ERROR:reseller_can_not_view_subscription}

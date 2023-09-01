@@ -59,5 +59,5 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P
 
 ### Errors
 
-#### {INCLUDE:../includes/reseller-attribute-title.md}
-{INCLUDE:../includes/reseller-errors.md}
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}

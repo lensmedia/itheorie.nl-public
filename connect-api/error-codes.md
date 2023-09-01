@@ -22,12 +22,36 @@ These have the same properties for almost everything. One exception is validatio
 #### `400002` unable_to_parse_request_body
 > Error decoding request content.
 
-Same as `unable_to_decode_request_body` except we have detailed information in the response about where the parse error occurred.
+Same as `unable_to_decode_request_body` except we can have detailed information (if available by parser) in the response about where the parse error occurred.
+
+```json 
+{
+    "status": 400,
+    "code": 400002,
+    "message": "Fout bij het parsen van de verzoek inhoud.",
+    "description": "Parse error on line 4:\n...    \"mobilePhone\": \"+316\r}\n---------------------^\nInvalid string, it appears you forgot to terminate a string, or attempted to write a multiline string which is invalid"
+}
+```
 
 #### `400003` validation_failed
 > Error parsing request content.
 
 Validation failed on the data sent in the request body, see the response data for more details.
+
+```json
+{
+    "status": 400,
+    "code": 400003,
+    "message": "Incorrecte gegevens ingevoerd.",
+    "violations": [
+        {
+            "code": "1a1560ed-f121-434c-83a9-202f90f684ab",
+            "message": "De geselecteerde cursus is ongeldig of niet meer beschikbaar.",
+            "propertyPath": "course"
+        }
+    ]
+}
+```
 
 #### `400010` invalid_reseller_parameter
 > Incorrect data entered.
@@ -42,7 +66,7 @@ Subscription parameter is expected to a ULID or chamber of commerce number, if t
 #### `400012` invalid_access_code_parameter
 > Invalid subscription parameter.
 
-The subscription parameter matches an acces code, but the access code is not valid (could be a typo, or simple wrong).
+The subscription parameter matches an acces code, but the access code is not valid (could be a typo, or simply wrong).
 
 #### `400020` reseller_company_missing_direct_debit_payment_method
 > Invalid access code parameter.
@@ -144,7 +168,7 @@ The reseller you are using for the request has been disabled at our side, theref
 #### `403006` reseller_can_not_view_subscription
 > Your account is disabled at iTheorie, contact us at helpdesk@itheorie.nl for questions.
 
-The reseller is not allowed to see the progression of the student, it must first be permitted by the student in the study section of iTheorie.
+The reseller is not allowed to see the progression of the student, it must first be permitted by the student in the study section of iTheorie or using `permissionToShareProgress` in the [:link: `POST /{reseller}/purchases`](reseller-purchases-post.md) request.
 
 #### `404001` reseller_company_not_found_by_id
 > You do not have permission from the student to view their progress.
@@ -178,7 +202,12 @@ The reseller has not enabled permission for third party (broker) purchases. The 
 
 
 #### `404007` invoice_not_found
-> Student could not be found at iTheorie.
+> Invoice could not be found.
+
+
+
+#### `404008` purchase_not_found
+> Purchase could not be found.
 
 
 

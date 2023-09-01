@@ -1,5 +1,5 @@
-| name            | type       | description                     |
-|-----------------|------------|---------------------------------|
-| `chapters`      | `string[]` | theory section progression info |
-| `exams`         | `string[]` | practise exam progression info  |
-| `theoryLessons` | `string[]` | theory lessons progression info |
+| name            | type                          | description                     |
+|-----------------|-------------------------------|---------------------------------|
+| `chapters`      | `ProgressionChapterData`      | Theory section progression info |
+| `exams`         | `ProgressionExamData`         | Practise exam progression info  |
+| `theoryLessons` | `ProgressionTheoryLessonData` | Theory lessons progression info |

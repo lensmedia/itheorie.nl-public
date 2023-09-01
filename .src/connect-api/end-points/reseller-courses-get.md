@@ -12,9 +12,6 @@ works with all courses that we have in our system, active or not.
 ```http
 GET /{reseller}/courses
 ```
-```http
-GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses
-```
 
 ### Parameters
 * {INCLUDE:../includes/reseller-parameter.md}
@@ -24,6 +21,8 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses
 
 ## Response
 ### Schema
+
+#### Collection
 {INCLUDE:../includes/schemas/pagination.md}
 | `data` | `CourseData[]` | List with all purchases made by the reseller. |
 
@@ -80,5 +79,5 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses
 
 ### Errors
 
-#### {INCLUDE:../includes/reseller-attribute-title.md}
-{INCLUDE:../includes/reseller-errors.md}
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}

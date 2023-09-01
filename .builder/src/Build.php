@@ -63,8 +63,9 @@ class Build extends Command
                 new IncludeTransformer(),
                 new ErrorTransformer($this->sourceDirectory.'/connect-api/errors.json'),
                 new ReplaceTransformer([
-                    '~\*\*NOTE\*\*~' => ':warning:',
+                    '~\*\*NOTE\*\*~' => ':warning: **NOTE**',
                     '~\*\*info\*\*~i' => ':information_source:',
+                    '~\*\*WIP\*\*~i' => ':construction: **WIP**',
                 ]),
             ];
         }

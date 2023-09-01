@@ -1,4 +1,4 @@
-# Title
+# Purchase details
 
 ## Request
 ```http
@@ -6,9 +6,19 @@ GET /{reseller}/purchases/{purchase}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID or KvK of <dfn>reseller</dfn>
-* `purchase` - `string` - ULID of <dfn>purchase</dfn>
+* {INCLUDE:../includes/reseller-parameter.md}
+* `purchase` - `string` - ULID of the purchase
 
+## Response
+
+### Schema
+#### PurchaseData
+{INCLUDE:../includes/schemas/purchase-data.md}
+
+#### Money
+{INCLUDE:../includes/schemas/money.md}
+
+### Example
 ```json
 {
     "id": "01H910J9TXYFCT994W4JFN0RD7",
@@ -28,3 +38,11 @@ GET /{reseller}/purchases/{purchase}
     "mobilePhoneNumber": "+31612345678"
 }
 ```
+
+### Errors
+
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}
+
+#### Purchase parameter
+* {ERROR:purchase_not_found}

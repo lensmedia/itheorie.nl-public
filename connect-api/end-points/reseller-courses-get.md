@@ -12,9 +12,6 @@ works with all courses that we have in our system, active or not.
 ```http
 GET /{reseller}/courses
 ```
-```http
-GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses
-```
 
 ### Parameters
 * `reseller` - `string` - ULID or chamber of commerce number of the <dfn>reseller</dfn>
@@ -25,6 +22,8 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses
 
 ## Response
 ### Schema
+
+#### Collection
 | name             | type             | description                              |
 |------------------|------------------|------------------------------------------|
 | `links.first`    | `string`         | URL the to first page.                   |
@@ -109,10 +108,10 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses
 
 ### Errors
 
-#### Reseller attribute
-* `404001` `reseller_company_not_found_by_id` Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
-* `404002` `reseller_company_not_found_by_chamber_of_commerce` No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
+#### Reseller parameter
 * `400010` `invalid_reseller_parameter` Reseller parameter is expected to be a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
-* `404003` `reseller_not_found` The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.
 * `403004` `reseller_company_is_disabled` The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
 * `403005` `reseller_is_disabled` The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
+* `404001` `reseller_company_not_found_by_id` Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
+* `404002` `reseller_company_not_found_by_chamber_of_commerce` No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
+* `404003` `reseller_not_found` The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.

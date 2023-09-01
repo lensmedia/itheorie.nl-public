@@ -27,8 +27,8 @@ Content-Disposition: attachment; filename=IT12345.pdf
 
 ### Errors
 
-#### {INCLUDE:../includes/reseller-attribute-title.md}
-{INCLUDE:../includes/reseller-errors.md}
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}
 
-#### Invoice attribute
+#### Invoice parameter
 * {ERROR:invoice_not_found}

@@ -13,6 +13,8 @@ GET /{reseller}/invoices
 
 ## Response
 ### Schema
+
+#### Collection
 {INCLUDE:../includes/schemas/pagination.md}
 | `data` | `InvoiceData[]` | List with all purchases made by the reseller. |
 
@@ -53,5 +55,5 @@ GET /{reseller}/invoices
 
 ### Errors
 
-#### {INCLUDE:../includes/reseller-attribute-title.md}
-{INCLUDE:../includes/reseller-errors.md}
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}

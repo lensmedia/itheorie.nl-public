@@ -47,7 +47,7 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE2OTMzMTYzM
 ```
 
 ### Errors
-:warning: As the bearer token is used for all requests, these broker side related errors **can occur** on any request and will not be mentioned any further.
+:warning: **NOTE** As the bearer token is used for all requests, these broker side related errors **can occur** on any request and will not be mentioned any further.
 
 * `401002` `bearer_token_authentication_required` The request expects `Authorization` header with `Bearer <toke>` to be supplied, see authentication document for more details.
 

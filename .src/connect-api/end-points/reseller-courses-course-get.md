@@ -8,9 +8,6 @@ also possible that students follow older courses that have been unlisted._
 ```http
 GET /{reseller}/courses/{course}
 ```
-```http
-GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses/01GYFBWMYGGARXBN40X7FFDCNZ
-```
 
 ### Parameters
 * {INCLUDE:../includes/reseller-parameter.md}
@@ -41,8 +38,8 @@ As these also include courses that are no longer active, there is no `OfferData`
 
 ### Errors
 
-#### {INCLUDE:../includes/reseller-attribute-title.md}
-{INCLUDE:../includes/reseller-errors.md}
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}
 
-#### Course attribute
+#### Course parameter
 * {ERROR:course_not_found}

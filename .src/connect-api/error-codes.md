@@ -24,10 +24,14 @@ These have the same properties for almost everything. One exception is validatio
 
 {ERROR:unable_to_parse_request_body}(description)
 
+{INCLUDE:includes/unable-to-parse-request-body-example.md}
+
 #### `{ERROR:validation_failed}(code)` {ERROR:validation_failed}(id)
 > {ERROR:unable_to_parse_request_body}(message)
 
 {ERROR:validation_failed}(description)
+
+{INCLUDE:includes/validation-failed-example.md}
 
 #### `{ERROR:invalid_reseller_parameter}(code)` {ERROR:invalid_reseller_parameter}(id)
 > {ERROR:validation_failed}(message)
@@ -178,9 +182,14 @@ These have the same properties for almost everything. One exception is validatio
 {ERROR:subscription_not_found_by_id}(description)
 
 #### `{ERROR:invoice_not_found}(code)` {ERROR:invoice_not_found}(id)
-> {ERROR:subscription_not_found_by_id}(message)
+> {ERROR:invoice_not_found}(message)
 
 {ERROR:invoice_not_found}(description)
+
+#### `{ERROR:purchase_not_found}(code)` {ERROR:purchase_not_found}(id)
+> {ERROR:purchase_not_found}(message)
+
+{ERROR:purchase_not_found}(description)
 
 ### `500` Internal Server Error
 If you get any of these responses, or if you get a 500 response that does not even match our  format, please contact us. We will try to fix it as soon as possible!

@@ -14,6 +14,8 @@ GET /{reseller}/invoices
 
 ## Response
 ### Schema
+
+#### Collection
 | name             | type             | description                              |
 |------------------|------------------|------------------------------------------|
 | `links.first`    | `string`         | URL the to first page.                   |
@@ -28,7 +30,7 @@ GET /{reseller}/invoices
 |---------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`                | `int`      | invoice number, without the `IT` prefix                                                                                                                                                                                              |
 | `createdAt`         | `DateTime` | timestamp for when the invoice was created                                                                                                                                                                                           |
-| `amountOfPurchases` | `int`      | count for the amount of access codes that were collected for this invoice <br> :warning: _this list returns all invoices for the reseller, if this amount is 0 the invoice was created for a regular order and not for API purchases_ |
+| `amountOfPurchases` | `int`      | count for the amount of access codes that were collected for this invoice <br> :warning: **NOTE** _this list returns all invoices for the reseller, if this amount is 0 the invoice was created for a regular order and not for API purchases_ |
 | `total`             | `Money`    | invoice total without vat                                                                                                                                                                                                            |
 | `vat`               | `array`    | array vat values by percentage (key) and value (value)                                                                                                                                                                               |
 | `totalWithVat`      | `Money`    | invoice total including vat                                                                                                                                                                                                          |
@@ -70,10 +72,10 @@ GET /{reseller}/invoices
 
 ### Errors
 
-#### Reseller attribute
-* `404001` `reseller_company_not_found_by_id` Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
-* `404002` `reseller_company_not_found_by_chamber_of_commerce` No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
+#### Reseller parameter
 * `400010` `invalid_reseller_parameter` Reseller parameter is expected to be a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
-* `404003` `reseller_not_found` The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.
 * `403004` `reseller_company_is_disabled` The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
 * `403005` `reseller_is_disabled` The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
+* `404001` `reseller_company_not_found_by_id` Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
+* `404002` `reseller_company_not_found_by_chamber_of_commerce` No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
+* `404003` `reseller_not_found` The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.

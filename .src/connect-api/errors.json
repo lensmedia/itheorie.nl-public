@@ -15,7 +15,7 @@
         "code": 400002,
         "id": "unable_to_parse_request_body",
         "message": "Error parsing request content.",
-        "description": "Same as `unable_to_decode_request_body` except we have detailed information in the response about where the parse error occurred."
+        "description": "Same as `unable_to_decode_request_body` except we can have detailed information (if available by parser) in the response about where the parse error occurred."
     },
     "validation_failed": {
         "code": 400003,
@@ -39,7 +39,7 @@
         "code": 400012,
         "id": "invalid_access_code_parameter",
         "message": "Invalid access code parameter.",
-        "description": "The subscription parameter matches an acces code, but the access code is not valid (could be a typo, or simple wrong)."
+        "description": "The subscription parameter matches an acces code, but the access code is not valid (could be a typo, or simply wrong)."
     },
     "reseller_company_missing_direct_debit_payment_method": {
         "code": 400020,
@@ -159,7 +159,7 @@
         "code": 403006,
         "id": "reseller_can_not_view_subscription",
         "message": "You do not have permission from the student to view their progress.",
-        "description": "The reseller is not allowed to see the progression of the student, it must first be permitted by the student in the study section of iTheorie."
+        "description": "The reseller is not allowed to see the progression of the student, it must first be permitted by the student in the study section of iTheorie or using `permissionToShareProgress` in the [:link: `POST /{reseller}/purchases`](reseller-purchases-post.md) request."
     },
     "reseller_company_not_found_by_id": {
         "code": 404001,
@@ -201,6 +201,12 @@
         "code": 404007,
         "id": "invoice_not_found",
         "message": "Invoice could not be found.",
+        "description": null
+    },
+    "purchase_not_found": {
+        "code": 404008,
+        "id": "purchase_not_found",
+        "message": "Purchase could not be found.",
         "description": null
     },
     "unknown_error": {

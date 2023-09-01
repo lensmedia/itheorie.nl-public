@@ -4,9 +4,6 @@
 ```http
 GET /{reseller}/purchases
 ```
-```http
-GET https://test.itheorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/purchases
-```
 
 ### Parameters
 * {INCLUDE:../includes/reseller-parameter.md}
@@ -19,6 +16,8 @@ WIP
 
 ## Response
 ### Schema
+
+#### Collection
 {INCLUDE:../includes/schemas/pagination.md}
 | `data` | `PurchaseData[]` | List with all purchases made by the reseller. |
 
@@ -55,5 +54,5 @@ WIP
 
 ### Errors
 
-#### {INCLUDE:../includes/reseller-attribute-title.md}
-{INCLUDE:../includes/reseller-errors.md}
+#### {INCLUDE:../includes/reseller-parameter-title.md}
+{INCLUDE:../includes/reseller-parameter-errors.md}
