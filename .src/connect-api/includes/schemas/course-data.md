@@ -1,25 +1,3 @@
-# Cursus gegevens
-Specific course information (also works for courses that are no longer active).
-
-_:information_source: active courses are courses that can be purchased right now. It is
-also possible that students follow older courses that have been unlisted._
-
-## Request
-```http
-GET /{reseller}/courses/{course}
-```
-```http
-GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses/01GYFBWMYGGARXBN40X7FFDCNZ
-```
-
-### Parameters
-* `reseller` - `string` - ULID or chamber of commerce number of the <dfn>reseller</dfn>
-* `course` - `string` - ULID of the <dfn>course</dfn>
-
-## Response
-#### Schema
-As these also include courses that are no longer active, there is no `OfferData` included. Use the courses list to get the active courses and their prices.
-
 | name            | type       | description                                                                                                                                                            |
 |-----------------|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | `id`            | `Ulid`     | course identifier                                                                                                                                                      |
@@ -33,33 +11,3 @@ As these also include courses that are no longer active, there is no `OfferData`
 | `chapters`      | `string[]` | array of chapter titles in the course, can be used as a quick course summary or just to show the count                                                                 |
 | `exams`         | `string[]` | array of exam titles available in the course                                                                                                                           |
 | `theoryLessons` | `string[]` | array of theory lessons available in the course                                                                                                                        |
-
-#### Example
-```json
-{
-    "id": "01GYFBWMYGGARXBN40X7FFDCNZ",
-    "license": "B",
-    "locale": "NL",
-    "title": "Theoriecursus personenauto",
-    "description": "Online theorie leren voor het CBR theorie-examen auto, motor, scooter, snorfiets, bromfiets, speed-pedelec of brommobiel.",
-    "image": "https://test.itheorie.nl/assets/images/course/fallback.jpg",
-    "publishedAt": "2023-04-20T14:58:06+02:00",
-    "updatedAt": "2023-08-29T16:54:01+02:00",
-    "chapters": [ "Wetgeving", "Voertuigkennis", ... ],
-    "exams": [ "Examen 1", "Examen 2", ... ],
-    "theoryLessons": [ "Wetgeving", "Voertuigkennis", ... ],
-}
-```
-
-### Errors
-
-#### Reseller attribute
-* `404001` `reseller_company_not_found_by_id` Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
-* `404002` `reseller_company_not_found_by_chamber_of_commerce` No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
-* `400010` `invalid_reseller_parameter` Reseller parameter is expected to be a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
-* `404003` `reseller_not_found` The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.
-* `403004` `reseller_company_is_disabled` The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
-* `403005` `reseller_is_disabled` The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
-
-#### Course attribute
-* `404004` `course_not_found` Course could not be found.

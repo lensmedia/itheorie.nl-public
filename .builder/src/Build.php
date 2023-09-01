@@ -1,8 +1,12 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
+use App\Transformer\ErrorTransformer;
 use App\Transformer\IncludeTransformer;
+use App\Transformer\ReplaceTransformer;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Output\OutputInterface;
@@ -11,7 +15,7 @@ use Symfony\Component\Filesystem\Filesystem;
 class Build extends Command
 {
     public const EXCLUDE_DOCS = [
-        'connect-api/schemas',
+        'connect-api/includes',
         'connect-api/old',
     ];
 
@@ -40,13 +44,32 @@ class Build extends Command
             // instead of proper parsing, you go write the parser im lazy for
             // something this simple. This becomes more important when we have
             // many things to do.
-            $content = IncludeTransformer::transform($content, $file);
+            foreach ($this->transformers() as $transformer) {
+                $content = $transformer->transform($content, $file, $this->sourceDirectory);
+            }
 
             $outputPath = str_replace($this->sourceDirectory, $this->outputDirectory, $file);
             $this->filesystem->dumpFile($outputPath, $content);
         }
 
         return Command::SUCCESS;
+    }
+
+    private function transformers(): array
+    {
+        static $transformers = [];
+        if (empty($transformers)) {
+            $transformers = [
+                new IncludeTransformer(),
+                new ErrorTransformer($this->sourceDirectory.'/connect-api/errors.json'),
+                new ReplaceTransformer([
+                    '~\*\*NOTE\*\*~' => ':warning:',
+                    '~\*\*info\*\*~i' => ':information_source:',
+                ]),
+            ];
+        }
+
+        return $transformers;
     }
 
     private function files(string $pattern, int $flags = 0): array

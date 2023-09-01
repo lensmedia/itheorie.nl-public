@@ -1,6 +1,7 @@
 # Error codes
-Error codes komen met een HTTP status code en in de response zit een error object met een unique fout code, naam en omschrijving.
-Deze hebben voor bijna alles dezelfde properties met uitzondering van validatie fouten (`validation_failed`), daar komen meer velden bij.
+Error codes are prefixed with the HTTP status code and are returned in the response body as an error object with a unique error code, name and description.
+
+These have the same properties for almost everything. One exception is validation errors (`validation_failed`), there are more fields there indicating errors for each field.
 
 ## Voorbeeld
 ```json
@@ -11,45 +12,191 @@ Deze hebben voor bijna alles dezelfde properties met uitzondering van validatie 
 }
 ```
 
-De gebruikte codes staan ook bij elke endpoint, maar hier is een overzicht van alle mogelijke fouten.
-
-## Fouten
+## Errors
 ### `400` Bad Request
-| Code     | Naam                | Omschrijving                                     |
-|----------|---------------------|--------------------------------------------------|
-| `400100` | `validation_failed` | Validate op verstuurde data is niet goed gegaan. |
+#### `400001` unable_to_decode_request_body
+> connect_api_exception
 
-**Belangrijk!** `validation_failed` response syntax is nog niet bekend/. Ik heb op dit 
-moment geen voorbeeld bij de hand hoe ons PHP-framework deze omzet naar JSON. Ik ga 
-z.s.m. even een test voor opzetten en hier een voorbeeld plaatsen.
+"Something" went wrong tying to parse the request body, not sure what.
 
-### `402` Payment Required
-| Code     | Naam                          | Omschrijving                                                                                   |
-|----------|-------------------------------|------------------------------------------------------------------------------------------------|
-| `402001` | `missing_payment_information` | Aankoop is niet gratis en er zijn geen betaal gegevens bij ons bekend van <dfn>reseller</dfn>. |
+#### `400002` unable_to_parse_request_body
+> Error decoding request content.
+
+Same as `unable_to_decode_request_body` except we have detailed information in the response about where the parse error occurred.
+
+#### `400003` validation_failed
+> Error parsing request content.
+
+Validation failed on the data sent in the request body, see the response data for more details.
+
+#### `400010` invalid_reseller_parameter
+> Incorrect data entered.
+
+Reseller parameter is expected to be a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
+
+#### `400011` invalid_subscription_parameter
+> Invalid reseller parameter.
+
+Subscription parameter is expected to a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
+
+#### `400012` invalid_access_code_parameter
+> Invalid subscription parameter.
+
+The subscription parameter matches an acces code, but the access code is not valid (could be a typo, or simple wrong).
+
+#### `400020` reseller_company_missing_direct_debit_payment_method
+> Invalid access code parameter.
+
+We require the reseller to have payment information in our system (account holder/IBAN) for direct debit payments.
+
+#### `400021` reseller_user_missing_email_contact_method
+> No direct debit details are known at iTheorie.
+
+We require the reseller to have an email address in our system used for invoices/direct debit notifications.
+
+### `401` Unauthorized
+#### `401001` basic_authentication_required
+> No email address is known at iTheorie.
+
+The requests expects `Authorization` header with `Basic` to be present, see authentication document for more details.
+
+#### `401002` bearer_token_authentication_required
+> Authentication (basic) required.
+
+The request expects `Authorization` header with `Bearer <toke>` to be supplied, see authentication document for more details.
+
+#### `401003` invalid_credentials
+> Authentication (bearer token) required.
+
+Authorization Basic request has an invalid password.
+
+#### `401004` token_is_revoked
+> Invalid credentials.
+
+Happens to the older tokens when you generate a new one. There is no other form of expiration yet.
+
+#### `401005` token_decoding_error
+> Token is revoked.
+
+
+
+#### `401006` invalid_signature
+> Error decoding token.
+
+
+
+#### `401007` token_not_yet_valid
+> Invalid token signature.
+
+_not used yet_
+
+#### `401008` token_has_expired
+> Token is not yet valid.
+
+_not used yet_
+
+#### `401009` token_is_invalid
+> Token has expired.
+
+
+
+#### `401010` broker_user_not_found
+> Token is invalid.
+
+The user account could not be found, pleases check your LENS ID login credentials.
+
+#### `401011` broker_company_not_found
+> Broker not found (user level).
+
+The user account trying to login is not associated with a company in our database.
+
+#### `401012` broker_account_not_found
+> Broker not found (company level).
+
+The broker account could not be found, you must request access before you can use this api.
 
 ### `403` Forbidden
-| Code     | Naam                                      | Omschrijving                                                                                   |
-|----------|-------------------------------------------|------------------------------------------------------------------------------------------------|
-| `403001` | `broker_is_disabled`                      | <dfn>Broker</dfn> is geblokkeerd.                                                              |
-| `403002` | `reseller_is_disabled`                    | <dfn>Reseller</dfn> is geblokkeerd.                                                            |
-| `403003` | `broker_missing_permission_from_reseller` | <dfn>Broker</dfn> heeft geen toestemming om deze actie uit te voeren voor <dfn>reseller</dfn>. |
-| `403004` | `student_no_shared_progress`              | De student heeft zijn voortgang niet gedeeld met de <dfn>reseller</dfn>.                       |
+#### `403001` broker_user_is_disabled
+> Broker not found.
+
+Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
+
+#### `403002` broker_company_is_disabled
+> Broker is disabled (user level).
+
+Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
+
+#### `403003` broker_account_is_disabled
+> Broker is disabled (company level).
+
+Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
+
+#### `403004` reseller_company_is_disabled
+> Broker is disabled.
+
+The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
+
+#### `403005` reseller_is_disabled
+> Your account is disabled at iTheorie, contact us at helpdesk@itheorie.nl for questions.
+
+The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
+
+#### `403006` reseller_can_not_view_subscription
+> Your account is disabled at iTheorie, contact us at helpdesk@itheorie.nl for questions.
+
+The reseller is not allowed to see the progression of the student, it must first be permitted by the student in the study section of iTheorie.
+
+#### `404001` reseller_company_not_found_by_id
+> You do not have permission from the student to view their progress.
+
+Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
+
+#### `404002` reseller_company_not_found_by_chamber_of_commerce
+> Data could not be found at iTheorie.
+
+No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
 
 ### `404` Not Found
-| Code     | Naam                    | Omschrijving                          |
-|----------|-------------------------|---------------------------------------|
-| `404001` | `reseller_not_found`    | <dfn>Reseller</dfn> is niet gevonden. |
-| `404002` | `invoice_not_found`     | Factuur is niet gevonden.             |
-| `404003` | `access_code_not_found` | Toegangscode is niet gevonden.        |
+#### `404003` reseller_not_found
+> Can not find the Chamber of Commerce number at iTheorie, make sure the Chamber of Commerce number matches the data on iTheorie. Are you not yet a customer of iTheorie? Then you can register for free at {registerUrl}. After registration, do not forget to give permission for purchases via third parties in the driving school section! Need help? Contact us at helpdesk@itheorie.nl.
+
+The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.
+
+#### `404004` course_not_found
+> No permission has been given for purchases via third parties. Go to the driving school section of iTheorie to give permission. Need help? Contact us at helpdesk@itheorie.nl.
+
+
+
+#### `404005` subscription_not_found_by_access_code
+> Course could not be found.
+
+
+
+#### `404006` subscription_not_found_by_id
+> Student could not be found at iTheorie, do you have the correct access code?
+
+
+
+#### `404007` invoice_not_found
+> Student could not be found at iTheorie.
+
+
 
 ### `500` Internal Server Error
-Als deze voor komt is er iets helemaal mis gegaan en moeten wij weer aan de slag. Laat het 
-ons a.u.b. z.s.m. weten! Bij voorkeur onder vermelding van het tijdstip en wat er gedaan werd
-zodat wij de fout kunnen opzoeken in de log files en kunnen testen!
+If you get any of these responses, or if you get a 500 response that does not even match our  format, please contact us. We will try to fix it as soon as possible!
+
+#### `500001` unknown_error
+> Invoice could not be found.
+
+
+
+#### `500002` unknown_authentication_error
+> Unknown error, contact us with the details of what you tried so we can fix this!
+
+
 
 ### `503` Service Unavailable
-Het kan voorkomen dat we iTheorie aan het updaten zijn, meestal is dat met een paar seconden 
-gebeurd en merkt niemand er wat van. Maar soms moeten we wat tijd reserveren voor het draaien 
-van een migratie. Op dat moment zou het kunnen voorkomen dat de API tijdelijk niet beschikbaar
-is. 
+It is possible that we are updating iTheorie, usually that is done within a few seconds and no one notices. But sometimes we have to reserve some time for running a migration. At that time it could happen that the API is temporarily unavailable. A response with this status code will be returned. This response might be of any content-type, no error object will be returned.
+
+#### `0` connect_api_exception
+_If you see this message please contact us, this is the base class message and should have been overridden._

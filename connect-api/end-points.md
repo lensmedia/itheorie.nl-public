@@ -2,7 +2,7 @@
 
 ## Generating API tokens
 [:link: `GET /auth`](authentication.md) -
-http basic request returning an auth token to access everything else.
+http basic request returning an bearer token to access everything else.
 
 ## Resellers
 [:link: `GET /{reseller}`](end-points/reseller-get.md) -

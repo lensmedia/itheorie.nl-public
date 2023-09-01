@@ -1,35 +1,52 @@
 # Connect API
-## Bijzonderheden
-Voordat we beginnen. Wij gaan er van uit dat de meeste technische termen m.b.t. HTTP/REST API/JSON bekend zijn, deze documentatie is niet bedoeld voor als je nog nooit met API's (en IT'ers) hebt gewerkt.
+## Curiosities
+Before we start. We assume that most technical terms regarding HTTP/REST API/JSON are known, this documentation is not intended for if you have never worked with API's.
 
-Buiten de technische termen om zijn er nog wat extra puntjes van aandacht die gebruikt worden in deze documentatie die misschien onduidelijk kunnen zijn:
+Outside of the technical terms there are some extra points of attention used in this documentation that might be unclear:
 <dl>
 <dt><dfn>reseller</dfn>, rijscholen, verkoper</dt>
-<dd>Bedrijven/instanties die de uiteindelijke aankoop krijgen/betaling doen.</dd>
+<dd>Driving schools, companies, etc. that sell the product to the end user (students)</dd>
 <dt><dfn>broker</dfn>, tussenpersoon, wederverkoper, affiliate</dt>
-<dd>De bedrijven/instanties die gebruik maken van deze API</dd>
+<dd>Driving schools, companies, etc. that use this API in their product to sell products to <dfn>reseller</dfn></dd>
 <dt><dfn>legacy api</dfn></dt>
-<dd>Verwijzing naar onze verouderde JSON RPC Connect API, word soms vermeld voor verduidelijking met migraties</dd>
+<dd>Refers to our old JSON RPC Connect API, sometimes mentioned for clarification with migrations</dd>
 <dt><dfn>kvk</dfn></dt>
-<dd>Kamer van Koophandel nummer (8 cijfers, als string want soms beginnen ze met een 0), deze word regelmatig gebruik als argumenten in verschillende end points. Let er op dat deze aangepast kan worden. Het is in deze nieuwe API ook mogelijk om met statische IDs te werken.</dd>
+<dd>Chamber of Commerce number (8 digits, as a string because sometimes they start with a 0), this is used as an argument in several end points. Note that the chamber of commerce number can be changed, do not use it for associations when storing things locally. It is also possible to work with static IDs in this new API.</dd>
 <dt><dfn>toegangscode</dfn>, <dfn>access code</dfn>, <dfn>subscription</dfn></dt>
-<dd>Toegangscode/access code zijn de inlog codes die de student gebruikt om in te loggen op itheorie.nl. Subscription is de interne naam die onze itheorie studenten/gebruikers entiteit gekregen heeft, als er verwezen word naar een id voor een toegangscode (in plaats van de toegangscode zelf) dan zal deze zo heten.</dd>
+<dd>Access codes are the login codes that the student uses to log in to itheorie.nl. Subscription is the internal name that our itheorie student/user entity has received, if there is a reference to an id for an access code (instead of the access code itself) then it will be called that way.</dd>
 </dl>
 
-## Laten we beginnen
-Onze API heeft de naam Connect API gekregen (omdat hij op dat pad te vinden was). Deze API is bedoeld voor <dfn id="broker">brokers</dfn> die gebruik maken van onze diensten.  Het uiteindelijke doel van deze api is om geautomatiseerd iTheorie toegangscodes te verkopen via/aan externe partijen.
+## Let's get started
+Our API has been given the name Connect API (because it was found on that path). This API is intended for <dfn id="broker">brokers</dfn> who use our services. The ultimate goal of this API is to sell iTheorie access codes automatically via/to external parties.
 
-Alles komt onder dezelfde URL als de legacy api. Root POST oproepen (`POST /api/connect`) gaan nog naar het oude systeem (die blijft voorlopig nog gewoon werken). Alle andere routes onder `/api/connect` gaan naar onze nieuwe API (waar we hier voor zijn!).
+If you want to get started please contact us so we can provide you with a test account on https://test.itheorie.nl. We would also need an external development IP address(es) to add you to the whitelist. 
+
+Everything is available under the same URL as the legacy api. Root POST calls (`POST /api/connect`) still go to the old system (which will continue to work for the time being). All other calls under `https://test.itheorie.nl/api/connect` will connect to our new API. All paths documented in this documentation are relative to `https://test.itheorie.nl/api/connect` (or the live version `https://itheorie.nl/api/connect`) it is advised to do the same, so they can easily be swapped from test to live.
 
 ### JSON
-Onze api maakt gebruik van JSON. We gaan proberen zoveel mogelijk gebruik te maken van de guidelines van JSON+LD om te linken naar andere resources. Echter omdat dit om een relatief simpele API gaat zitten hier nog geen complexe systemen achter die dat automatisch doen. 
+Our api uses JSON. All requests must have the header `Content-Type: application/json` (if they have content) and all responses will have the header `Content-Type: application/json`.
 
-### Contact
-Het kan uiteraard zo wezen dat er soms verwijzingen of andere dingen missen of niet kloppen, is dit het geval? Laat het ons weten!
+#### Language negotiation
+The API supports the `Accept-Language` header for both Dutch `nl` and English `en`. If this header is present, the API will try to return the response in the requested language. If the requested language is not available, or the header is not present, the API will return the response in Dutch. This is mainly useful for translated client validation error messages.
 
-Voor algemene vragen kan je terecht bij [Peter Somers](mailto:p.somers@lensmedia.nl). Voor technische vragen/suggesties kan je via de email terecht bij onze [IT-afdeling](mailto:it@lensmedia.nl), of gebruik [github issues](https://github.com/lensmedia/itheorie.nl-public/issues)!
+```http
+GET https://test.itheorie.nl/api/connect
+Accept-Language: en
+```
+```json
+{
+    "message": "Welcome to our iTheorie Connect API ..."
+}
+```
+
+_If you would like another language to be supported in our API, please contact us, and we'll see what we can do for it. Note that this does not include course languages._
 
 ## Continue reading
 * [Authentication](authentication.md)
 * [End Points](end-points.md)
 * [Error codes](error-codes.md)
+
+## Contact
+It can be that some things are not clear, you have a question about something or things are not working as expected. In any case please contact us!
+
+For general questions you can contact [Peter Somers](mailto:p.somers@lensmedia.nl). For technical questions/suggestions you can contact our [IT department](mailto:it@lensmedia.nl) or use [github issues](https://github.com/lensmedia/itheorie.nl-public/issues)! And we will try to help you as soon as possible (workdays from 9.00 - 17.00).

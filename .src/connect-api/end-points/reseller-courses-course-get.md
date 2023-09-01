@@ -1,5 +1,8 @@
 # Cursus gegevens
-Specifieke cursus informatie (werkt ook voor cursussen die niet meer actief zijn).
+Specific course information (also works for courses that are no longer active).
+
+_**info** active courses are courses that can be purchased right now. It is
+also possible that students follow older courses that have been unlisted._
 
 ## Request
 ```http
@@ -10,13 +13,15 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses/01GYF
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID or KvK of <dfn>reseller</dfn>
-* `course` - `string` - ULID of <dfn>course</dfn>
+* {INCLUDE:../includes/reseller-parameter.md}
+* `course` - `string` - ULID of the <dfn>course</dfn>
 
 ## Response
-### `200` OK
-
 #### Schema
+As these also include courses that are no longer active, there is no `OfferData` included. Use the courses list to get the active courses and their prices.
+
+{INCLUDE:../includes/schemas/course-data.md}
+
 #### Example
 ```json
 {
@@ -25,7 +30,7 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses/01GYF
     "locale": "NL",
     "title": "Theoriecursus personenauto",
     "description": "Online theorie leren voor het CBR theorie-examen auto, motor, scooter, snorfiets, bromfiets, speed-pedelec of brommobiel.",
-    "image": "https://test.itheorie.nl/images/course/fallback.jpg",
+    "image": "https://test.itheorie.nl/assets/images/course/fallback.jpg",
     "publishedAt": "2023-04-20T14:58:06+02:00",
     "updatedAt": "2023-08-29T16:54:01+02:00",
     "chapters": [ "Wetgeving", "Voertuigkennis", ... ],
@@ -34,6 +39,10 @@ GET https://test.theorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/courses/01GYF
 }
 ```
 
-### `401` Unauthorized
-### `403` Forbidden
-### `404` Not Found
+### Errors
+
+#### {INCLUDE:../includes/reseller-attribute-title.md}
+{INCLUDE:../includes/reseller-errors.md}
+
+#### Course attribute
+* {ERROR:course_not_found}

@@ -9,8 +9,7 @@ GET /invoices/{reseller}
 * `reseller` - `string` - ULID of KvK van <dfn>reseller</dfn>
 
 ## Response
-### `200` OK
-#### Schema
+### Schema
 | veld                   | beschrijving                                                                                   |
 |------------------------|------------------------------------------------------------------------------------------------|
 | `id: int`              | Factuurnummer word vermeld in het formaat `IT12345` op de facturen intern gebruikt zonder `IT` |
@@ -19,7 +18,7 @@ GET /invoices/{reseller}
 | `totalWithVat: string` | Decimaal als string                                                                            |
 | `currency: string`     | Voorlopig altijd `EUR`                                                                         |
 
-#### Voorbeeld
+### Voorbeeld
 ```json
 [{
     "id": 51224,

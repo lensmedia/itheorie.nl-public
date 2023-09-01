@@ -1,4 +1,4 @@
-# Download de factuur als PDF
+# Download invoice as PDF
 
 ## Request
 ```http
@@ -6,11 +6,10 @@ GET /{reseller}/invoices/{invoice}
 ```
 
 ### Parameters
-* `reseller` - `string` - ULID or KvK of <dfn>reseller</dfn>
+* {INCLUDE:../includes/reseller-parameter.md}
 * `invoice` - `int` - Invoice number (without `IT` prefix as mentioned in the invoice itself)
 
 ## Response
-### `200` OK
 File response with content of the invoice PDF.
 
 ```http
@@ -26,5 +25,10 @@ Content-Disposition: attachment; filename=IT12345.pdf
 ...
 ```
 
-### `403` Forbidden
-### `404` Not Found
+### Errors
+
+#### {INCLUDE:../includes/reseller-attribute-title.md}
+{INCLUDE:../includes/reseller-errors.md}
+
+#### Invoice attribute
+* {ERROR:invoice_not_found}

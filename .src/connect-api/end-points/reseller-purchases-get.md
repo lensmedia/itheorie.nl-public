@@ -1,47 +1,59 @@
-# Lijst met alle aankopen voor een specifieke reseller
-
-_**WIP!** this requires pagination, forgot about that!_
+# List with all purchases made by the reseller.
 
 ## Request
 ```http
 GET /{reseller}/purchases
 ```
+```http
+GET https://test.itheorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/purchases
+```
 
 ### Parameters
-* `reseller` - `string` - ULID or KvK of <dfn>reseller</dfn>
+* {INCLUDE:../includes/reseller-parameter.md}
+
+#### Query Parameters
+{INCLUDE:../includes/pagination-parameters.md}
 
 ### Filters
-_**Nog niet uitgedacht**, maar uiteindelijk waarschijnlijk wel. De mogelijkheid om te zoeken op velden leek mij hier wel handig helemaal als een <dfn>reseller</dfb> veel inkoopt._
+WIP
 
 ## Response
-### `200` OK
-#### Schema
+### Schema
+{INCLUDE:../includes/schemas/pagination.md}
+| `data` | `PurchaseData[]` | List with all purchases made by the reseller. |
 
-#### Example
+### Example
 ```json
 {
-    "@broker": "/resellers/01GC7ABB22TT7Y6883YPVHFCG5.json",
-    "@reseller": "/resellers/02GC7ABB22TT7Y6883YPVHFCG5.json",
-    "loginUrl": "https://itheorie.nl/inloggen",
-    "directLoginUrl": "https://itheorie.nl/qr?code=__CODE__",
-    "items": [{
-        "@purchase": "/purchases/03GC7ABB22TT7Y6883YPVHFCG5.json", 
-        "@course": "/courses/04GC7ABB22TT7Y6883YPVHFCG5.json",
-        "id": "03GC7ABB22TT7Y6883YPVHFCG5",
-        "createdAt": "2023-01-01T00:00:00+00:00",
-        "currency": "EUR",
-        "price": "16.80",
-        "invoice": 51231,
-        "accessCode": "0A1B2C3456D7E8F9",
-        "name": "Pietje Puk",
-        "email": "pietje.puk@voorbeeld.nl",
-        "mobile": "+31612345678",
-        "permissionToShareProgress": true
-    }, {
-        ...
-    }]
+    "links": {
+        "first": "https://test.itheorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/purchases?page=1",
+        "previous": "https://test.itheorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/purchases?page=3",
+        "self": "https://test.itheorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/purchases?page=4",
+        "last": "https://test.itheorie.nl/api/connect/01H90PZFEDWE3YWZJPD8Z7030P/purchases?page=4"
+    },
+    "data": [
+        {
+            "id": "01H90Z030C2X1KXS06EPPSYQ7E",
+            "invoice": 12353,
+            "createdAt": "2023-08-29T17:36:05+02:00",
+            "price": {
+                "amount": "16.45",
+                "currency": "EUR"
+            },
+            "subscription": "01H90Z0320W4JZ5BPWFV13MQEF",
+            "accessCode": "e9fdfd45e2a39ad6",
+            "expiresAt": "2026-08-01T00:00:00+02:00",
+            "loginUrl": "https://test.itheorie.nl/login",
+            "directLoginUrl": "https://test.itheorie.nl/qr?code=e9fdfd45e2a39ad6",
+            "name": "Pietje Puk",
+            "email": "pietje.puk@voorbeeld.nl",
+            "mobilePhoneNumber": "+31612345678"
+        }
+    ]
 }
 ```
 
-### `403` Forbidden
-### `404` Not Found
+### Errors
+
+#### {INCLUDE:../includes/reseller-attribute-title.md}
+{INCLUDE:../includes/reseller-errors.md}
