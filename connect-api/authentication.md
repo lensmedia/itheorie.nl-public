@@ -71,3 +71,7 @@ _When disabled: Your account has been disabled on our side, contact helpdesk@ith
 
 #### Other
 * `500002` `unknown_authentication_error` Unknown error during authentication, contact us with the details of what you tried so we can fix this!
+
+## Continue reading
+A brief explanation of our error structure can be found in [error codes](error-codes.md).
+If you want to get to the good part you can also continue reading about our [end points](end-points.md) these will reference back to the errors when applicable.

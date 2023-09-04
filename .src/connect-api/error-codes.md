@@ -6,11 +6,17 @@ These have the same properties for almost everything. One exception is validatio
 ## Voorbeeld
 ```json
 {
-    "code": 12345,
-    "error": "error_name",
-    "error_description": "Error description"
+    "status": 418,
+    "code": 418001,
+    "message": "im_a_teapot",
+    "description": "I'm a teapot"
 }
 ```
+
+**info** it can be that on https://test.itheorie.nl more properties are returned (depending on the set environment). These are for debugging purposes only and should not appear in production. Also note that this can contain sensitive information and should be treated as such.
+
+## Continue reading
+It is advised to continue reading the [end points](end-points.md) documentation now and reference the summary below when you need to. Most errors are included on the specific end points documentation pages too.
 
 ## Errors
 ### `400` Bad Request

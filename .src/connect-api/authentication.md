@@ -71,3 +71,7 @@ _When disabled: {ERROR:broker_account_is_disabled}(description)_
 
 #### Other
 * {ERROR:unknown_authentication_error}
+
+## Continue reading
+A brief explanation of our error structure can be found in [error codes](error-codes.md).
+If you want to get to the good part you can also continue reading about our [end points](end-points.md) these will reference back to the errors when applicable.
