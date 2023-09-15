@@ -27,7 +27,7 @@ Everything is available under the same URL as the legacy api. Root POST calls (`
 Our api uses JSON. All requests must have the header `Content-Type: application/json` (if they have content) and all responses will have the header `Content-Type: application/json`.
 
 #### Language negotiation
-The API supports the `Accept-Language` header for both Dutch `nl` and English `en`. If this header is present, the API will try to return the response in the requested language. If the requested language is not available, or the header is not present, the API will return the response in Dutch. This is mainly useful for translated client validation error messages.
+The API supports the `Accept-Language` header for both Dutch `nl` and English `en`. If this header is present, the API will try to return the response in the requested language. If the requested language is not available, or the header is not present, the API will return the response in Dutch. This is mainly useful for translated client side validation error messages.
 
 ```http
 GET https://test.itheorie.nl/api/connect
@@ -41,6 +41,23 @@ Accept-Language: en
 
 _If you would like another language to be supported in our API, please contact us, and we'll see what we can do for it. Note that this does not include course languages._
 
+## Default credentials
+On rare occasions it is possible that the database gets reset in the test environment. We have a default username/password that will be sent to you privately. It is not advised to change the username and password of your account in the test environment (as they get reset to the initial values). At the same time your generated access token is removed, and it might happen they "suddenly" stop working - a new one needs to be generated.
+
+At the same time a few default resellers are generated for testing purposes. The default reseller have the following credentials:
+
+| ID                           | CoC        | Name                                  | Details                       |
+|------------------------------|------------|---------------------------------------|-------------------------------|
+| `01HA9XR6EMNA13CCAXS2J09K85` | `69599084` | Test EMZ Dagobert                     |                               |
+| `01HA9YR6WZM6SSQWGZGEX5F0BW` | `68727720` | Test NV Katrien                       | No email and payment method   |
+| `01HA9YRB7H7WANKRRRM668C236` | `90004760` | Local Funzoom N.V.                    | No email                      |
+| `01HA9YRFN9NS3YYQVVW1JHA46A` | `68750110` | Test BV Donald                        | Blocked user                  |
+| `01HA9YRMDZCQGXZD7CW9XBAR0E` | `90001354` | Grand Kontex B.V.                     | Blocked company               |
+| `01HA9YRR5RX411AQ8PWS7MV4X2` | `69599068` | Test Stichting Bolderbast             | Blocked reseller              |
+| `01HA9YRVH4V82660GPKFQG4FZV` | `90000102` | Stichting Free opentrans              | No address                    |
+| `01HA9YRYWZC7AZSXAGKQCXVY15` | `90006623` | Stichting Uc027Tc01Tg01 1652253635399 | API Price agreement (10e p/c) |
+| `01HA9YS2D70NBK4ZJ6Z8QZ90ES` | `69599076` | Test VOF Guus                         |                               |
+
 ## Continue reading
 * [Authentication](authentication.md)
 * [End Points](end-points.md)
@@ -49,4 +66,4 @@ _If you would like another language to be supported in our API, please contact u
 ## Contact
 It can be that some things are not clear, you have a question about something or things are not working as expected. In any case please contact us!
 
-For general questions you can contact [Peter Somers](mailto:p.somers@lensmedia.nl). For technical questions/suggestions you can contact our [IT department](mailto:it@lensmedia.nl) or use [github issues](https://github.com/lensmedia/itheorie.nl-public/issues)! And we will try to help you as soon as possible (workdays from 9.00 - 17.00).
+For general questions you can contact [Peter Somers](mailto:p.somers@lensmedia.nl). For technical questions/suggestions you can contact our [IT department](mailto:it@lensmedia.nl) or use [GitHub issues](https://github.com/lensmedia/itheorie.nl-public/issues)! And we will try to help you as soon as possible (workdays from 9.00 - 17.00).
