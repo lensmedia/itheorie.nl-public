@@ -46,17 +46,24 @@ On rare occasions it is possible that the database gets reset in the test enviro
 
 At the same time a few default resellers are generated for testing purposes. The default reseller have the following credentials:
 
-| ID                           | CoC        | Name                                  | Details                       |
-|------------------------------|------------|---------------------------------------|-------------------------------|
-| `01HA9XR6EMNA13CCAXS2J09K85` | `69599084` | Test EMZ Dagobert                     |                               |
-| `01HA9YR6WZM6SSQWGZGEX5F0BW` | `68727720` | Test NV Katrien                       | No email and payment method   |
-| `01HA9YRB7H7WANKRRRM668C236` | `90004760` | Local Funzoom N.V.                    | No email                      |
-| `01HA9YRFN9NS3YYQVVW1JHA46A` | `68750110` | Test BV Donald                        | Blocked user                  |
-| `01HA9YRMDZCQGXZD7CW9XBAR0E` | `90001354` | Grand Kontex B.V.                     | Blocked company               |
-| `01HA9YRR5RX411AQ8PWS7MV4X2` | `69599068` | Test Stichting Bolderbast             | Blocked reseller              |
-| `01HA9YRVH4V82660GPKFQG4FZV` | `90000102` | Stichting Free opentrans              | No address                    |
-| `01HA9YRYWZC7AZSXAGKQCXVY15` | `90006623` | Stichting Uc027Tc01Tg01 1652253635399 | API Price agreement (10e p/c) |
-| `01HA9YS2D70NBK4ZJ6Z8QZ90ES` | `69599076` | Test VOF Guus                         |                               |
+| ID                           | CoC        | Name                                           | Details                       |
+|------------------------------|------------|------------------------------------------------|-------------------------------|
+| `01HA9XR6EMNA13CCAXS2J09K85` | `69599084` | Test EMZ Dagobert                              |                               |
+| `01HA9YR6WZM6SSQWGZGEX5F0BW` | `68727720` | Test NV Katrien                                | No email and payment method   |
+| `01HA9YRB7H7WANKRRRM668C236` | `90004760` | Local Funzoom N.V.                             | No email                      |
+| `01HA9YRFN9NS3YYQVVW1JHA46A` | `68750110` | Test BV Donald                                 | Blocked user                  |
+| `01HA9YRMDZCQGXZD7CW9XBAR0E` | `90001354` | Grand Kontex B.V.                              | Blocked company               |
+| `01HA9YRR5RX411AQ8PWS7MV4X2` | `69599068` | Test Stichting Bolderbast                      | Blocked reseller              |
+| `01HA9YRVH4V82660GPKFQG4FZV` | `90000102` | Stichting Free opentrans                       | No address                    |
+| `01HA9YRYWZC7AZSXAGKQCXVY15` | `90006623` | Stichting Uc027Tc01Tg01 1652253635399          | API Price agreement (10e p/c) |
+| `01HA9YS2D70NBK4ZJ6Z8QZ90ES` | `69599076` | Test VOF Guus                                  |                               |
+| `01HF6KXMWHTXMWFDKWS47JZAEQ` | `69599076` | Regional Qvolane - MA                          |                               |
+| `01HF6KZYBSDJBWTR2ZVKNZN9KK` | `90005414` | Regional Stimflex Coöperatie                   |                               |
+| `01HF6MDH288RWJ2SENDEQ02BXV` | `55344526` | Global Kontex - MA                             |                               |
+| `01HF6MDP9EGEHAE8Y3VM4W2Z8M` | `90002520` | Onderlinge Waarborgmaatschappij Local Dongplus |                               |
+| `01HF6MDS7CGVCMS8R4PF9Y0533` | `90002490` | Global Conron                                  |                               |
+| `01HF6MDWC3D04EG1TG1D035R49` | `90001745` | Global Bigdofind                               |                               |
+| `01HF6ME0KA9BEPYM2M57PXVC70` | `90003942` | Free Stathex                                   |                               |
 
 ## Continue reading
 * [Authentication](authentication.md)
