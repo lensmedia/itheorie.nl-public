@@ -95,6 +95,8 @@ GET /{reseller}/students/{accessCode}
     "refresherCourseActivatedAt": null,
     "blockedAt": null,
     "blockedReason": null,
+    "progress": "0.8134",
+    "progressUrl": "https://test.itheorie.nl/voortgang/wLz4fPuVbmN7-RQ8YsO0kwAaP-ysJ4OTggl87R-CCk_DS8~",
     "progression": {
         "chapters": {
             "total": 9,
