@@ -3,4 +3,5 @@
 * {ERROR:reseller_is_disabled}
 * {ERROR:reseller_company_not_found_by_id}
 * {ERROR:reseller_company_not_found_by_chamber_of_commerce}
+* {ERROR:reseller_company_not_found_by_linking_code}
 * {ERROR:reseller_not_found}

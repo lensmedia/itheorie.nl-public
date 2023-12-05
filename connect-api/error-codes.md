@@ -21,12 +21,12 @@ It is advised to continue reading the [end points](end-points.md) documentation 
 ## Errors
 ### `400` Bad Request
 #### `400001` unable_to_decode_request_body
-> connect_api_exception
+> Error decoding request content.
 
 "Something" went wrong tying to parse the request body, not sure what.
 
 #### `400002` unable_to_parse_request_body
-> Error decoding request content.
+> Error parsing request content.
 
 Same as `unable_to_decode_request_body` except we can have detailed information (if available by parser) in the response about where the parse error occurred.
 
@@ -40,7 +40,7 @@ Same as `unable_to_decode_request_body` except we can have detailed information 
 ```
 
 #### `400003` validation_failed
-> Error parsing request content.
+> Incorrect data entered.
 
 Validation failed on the data sent in the request body, see the response data for more details.
 
@@ -60,109 +60,109 @@ Validation failed on the data sent in the request body, see the response data fo
 ```
 
 #### `400010` invalid_reseller_parameter
-> Incorrect data entered.
+> Invalid reseller parameter.
 
 Reseller parameter is expected to be a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
 
 #### `400011` invalid_subscription_parameter
-> Invalid reseller parameter.
+> Invalid subscription parameter.
 
 Subscription parameter is expected to a ULID or chamber of commerce number, if the value matched neither of the expected formats this message is shown.
 
 #### `400012` invalid_access_code_parameter
-> Invalid subscription parameter.
+> Invalid access code parameter.
 
 The subscription parameter matches an acces code, but the access code is not valid (could be a typo, or simply wrong).
 
 #### `400020` reseller_company_missing_direct_debit_payment_method
-> Invalid access code parameter.
+> No direct debit details are known at iTheorie.
 
 We require the reseller to have payment information in our system (account holder/IBAN) for direct debit payments.
 
 #### `400021` reseller_user_missing_email_contact_method
-> No direct debit details are known at iTheorie.
+> No email address is known at iTheorie.
 
 We require the reseller to have an email address in our system used for invoices/direct debit notifications.
 
 ### `401` Unauthorized
 #### `401001` basic_authentication_required
-> No email address is known at iTheorie.
+> Authentication (basic) required.
 
 The requests expects `Authorization` header with `Basic` to be present, see authentication document for more details.
 
 #### `401002` bearer_token_authentication_required
-> Authentication (basic) required.
+> Authentication (bearer token) required.
 
-The request expects `Authorization` header with `Bearer <toke>` to be supplied, see authentication document for more details.
+The request expects `Authorization` header with `Bearer <token>` to be supplied, see authentication document for more details.
 
 #### `401003` invalid_credentials
-> Authentication (bearer token) required.
+> Invalid credentials.
 
 Authorization Basic request has an invalid password.
 
 #### `401004` token_is_revoked
-> Invalid credentials.
+> Token is revoked.
 
 Happens to the older tokens when you generate a new one. There is no other form of expiration yet.
 
 #### `401005` token_decoding_error
-> Token is revoked.
-
-
-
-#### `401006` invalid_signature
 > Error decoding token.
 
 
 
-#### `401007` token_not_yet_valid
+#### `401006` invalid_signature
 > Invalid token signature.
 
-_not used yet_
 
-#### `401008` token_has_expired
+
+#### `401007` token_not_yet_valid
 > Token is not yet valid.
 
 _not used yet_
 
-#### `401009` token_is_invalid
+#### `401008` token_has_expired
 > Token has expired.
+
+_not used yet_
+
+#### `401009` token_is_invalid
+> Token is invalid.
 
 
 
 #### `401010` broker_user_not_found
-> Token is invalid.
+> Broker not found (user level).
 
 The user account could not be found, pleases check your LENS ID login credentials.
 
 #### `401011` broker_company_not_found
-> Broker not found (user level).
+> Broker not found (company level).
 
 The user account trying to login is not associated with a company in our database.
 
 #### `401012` broker_account_not_found
-> Broker not found (company level).
+> Broker not found.
 
 The broker account could not be found, you must request access before you can use this api.
 
 ### `403` Forbidden
 #### `403001` broker_user_is_disabled
-> Broker not found.
-
-Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
-
-#### `403002` broker_company_is_disabled
 > Broker is disabled (user level).
 
 Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
 
-#### `403003` broker_account_is_disabled
+#### `403002` broker_company_is_disabled
 > Broker is disabled (company level).
 
 Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
 
-#### `403004` reseller_company_is_disabled
+#### `403003` broker_account_is_disabled
 > Broker is disabled.
+
+Your account has been disabled on our side, contact helpdesk@itheorie.nl if you have questions.
+
+#### `403004` reseller_company_is_disabled
+> Your account is disabled at iTheorie, contact us at helpdesk@itheorie.nl for questions.
 
 The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
 
@@ -172,38 +172,38 @@ The reseller you are using for the request has been disabled at our side, theref
 The reseller you are using for the request has been disabled at our side, therefor he is not allowed to do anything.
 
 #### `403006` reseller_can_not_view_subscription
-> Your account is disabled at iTheorie, contact us at helpdesk@itheorie.nl for questions.
+> You do not have permission from the student to view their progress.
 
 The reseller is not allowed to see the progression of the student, it must first be permitted by the student in the study section of iTheorie or using `permissionToShareProgress` in the [:link: `POST /{reseller}/purchases`](reseller-purchases-post.md) request.
 
+### `404` Not Found
 #### `404001` reseller_company_not_found_by_id
-> You do not have permission from the student to view their progress.
+> Data could not be found at iTheorie.
 
 Reseller id is invalid/missing from our database (should only be invalid, we have not deleted old companies to date).
 
 #### `404002` reseller_company_not_found_by_chamber_of_commerce
-> Data could not be found at iTheorie.
-
-No company with the same chamber of commerce number was found in our database. Either registration or changes to the chamber of commerce number are required.
-
-### `404` Not Found
-#### `404003` reseller_not_found
 > Can not find the Chamber of Commerce number at iTheorie, make sure the Chamber of Commerce number matches the data on iTheorie. Are you not yet a customer of iTheorie? Then you can register for free at {registerUrl}. After registration, do not forget to give permission for purchases via third parties in the driving school section! Need help? Contact us at helpdesk@itheorie.nl.
+
+Linking code is invalid for any existing company in our database.
+
+#### `404003` reseller_not_found
+> No permission has been given for purchases via third parties. Go to the driving school section of iTheorie to give permission. Need help? Contact us at helpdesk@itheorie.nl.
 
 The reseller has not enabled permission for third party (broker) purchases. The reseller can do this in the driving school section of itheorie.nl.
 
 #### `404004` course_not_found
-> No permission has been given for purchases via third parties. Go to the driving school section of iTheorie to give permission. Need help? Contact us at helpdesk@itheorie.nl.
-
-
-
-#### `404005` subscription_not_found_by_access_code
 > Course could not be found.
 
 
 
-#### `404006` subscription_not_found_by_id
+#### `404005` subscription_not_found_by_access_code
 > Student could not be found at iTheorie, do you have the correct access code?
+
+
+
+#### `404006` subscription_not_found_by_id
+> Student could not be found at iTheorie.
 
 
 
@@ -217,16 +217,21 @@ The reseller has not enabled permission for third party (broker) purchases. The 
 
 
 
+#### `404009` reseller_company_not_found_by_linking_code
+> Data could not be found at iTheorie.
+
+Linking code is invalid for any existing company in our database.
+
 ### `500` Internal Server Error
 If you get any of these responses, or if you get a 500 response that does not even match our  format, please contact us. We will try to fix it as soon as possible!
 
 #### `500001` unknown_error
-> Invoice could not be found.
+> Unknown error, contact us with the details of what you tried so we can fix this!
 
 
 
 #### `500002` unknown_authentication_error
-> Unknown error, contact us with the details of what you tried so we can fix this!
+> Unknown error during authentication, contact us with the details of what you tried so we can fix this!
 
 
 
